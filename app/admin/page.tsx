@@ -79,7 +79,7 @@ export default function AdminDashboard() {
     setPassword("");
   };
 
-  const getFilteredData = () => {
+  const getFilteredData = (): any[] => {
     const list = 
       activeTab === "quick" 
         ? data.quickAdmissions 
@@ -111,7 +111,7 @@ export default function AdminDashboard() {
     if (filtered.length === 0) return;
 
     // Extract headers from data keys
-    const sample = filtered[0];
+    const sample = filtered[0] as any;
     const dataKeys = Object.keys(sample.data);
     const headers = ["ID", "Timestamp", ...dataKeys];
     
