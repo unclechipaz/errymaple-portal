@@ -271,9 +271,8 @@ export default function AdminDashboard() {
                   <span>Export CSV</span>
                 </Button>
                 <Button 
-                  variant="destructive"
                   onClick={handleLogout}
-                  className="font-bold flex items-center gap-2"
+                  className="bg-red-600 hover:bg-red-700 text-white font-bold flex items-center gap-2"
                 >
                   <LogOut className="h-4 w-4" />
                   <span className="hidden sm:inline">Logout</span>
