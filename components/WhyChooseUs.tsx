@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "react-view"; // Wait, react-view is not standard. Let's use framer-motion.
-import { motion as motionFramer } from "framer-motion";
+import { motion } from "framer-motion";
 import { BookOpen, Cpu, ShieldCheck, Trophy, Sparkles, CheckCircle2 } from "lucide-react";
+
+const motionFramer = motion;
 
 export default function WhyChooseUs() {
   const pillars = [
