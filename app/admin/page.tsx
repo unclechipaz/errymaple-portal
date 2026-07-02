@@ -171,7 +171,7 @@ export default function AdminDashboard() {
             <form onSubmit={handleLogin} className="space-y-4">
               {loginError && (
                 <motion.div 
-                  initial={{ shake: true }}
+                  initial={{ x: 0 }}
                   animate={{ x: [0, -10, 10, -10, 10, 0] }}
                   transition={{ duration: 0.4 }}
                   className="bg-rose-950/40 border border-rose-900/40 text-rose-350 p-3 rounded-xl text-xs flex items-center gap-2"
