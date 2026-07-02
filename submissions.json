@@ -1,0 +1,18 @@
+{
+  "quickAdmissions": [
+    {
+      "id": "quick_admissions_1782049969871",
+      "timestamp": "2026-06-21T13:52:49.871Z",
+      "data": {
+        "name": "CHARLTON KUDAKWASHE CHIPANDAMBIRA",
+        "email": "mudzidzisi@gmail.com",
+        "phone": "0777496095",
+        "school": "High School",
+        "grade": "Form 1",
+        "message": "Application for 2026 "
+      }
+    }
+  ],
+  "highSchoolRegistrations": [],
+  "contactInquiries": []
+}

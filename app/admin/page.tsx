@@ -1,0 +1,493 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { 
+  Users, Calendar, FileText, Mail, ArrowLeft, Search, 
+  Download, RefreshCw, CheckCircle2, ShieldAlert, 
+  Info, ExternalLink, School, Lock, User, LogOut
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+export default function AdminDashboard() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
+
+  const [activeTab, setActiveTab] = useState<"quick" | "registration" | "contact">("quick");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [data, setData] = useState<{
+    quickAdmissions: any[];
+    highSchoolRegistrations: any[];
+    contactInquiries: any[];
+  }>({
+    quickAdmissions: [],
+    highSchoolRegistrations: [],
+    contactInquiries: []
+  });
+
+  // Check auth state on mount
+  useEffect(() => {
+    const authState = sessionStorage.getItem("admin_auth");
+    if (authState === "true") {
+      setIsAuthenticated(true);
+      fetchSubmissions();
+    }
+  }, []);
+
+  const fetchSubmissions = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/get-submissions");
+      if (!res.ok) throw new Error("Failed to fetch submissions");
+      const json = await res.json();
+      setData({
+        quickAdmissions: json.quickAdmissions || [],
+        highSchoolRegistrations: json.highSchoolRegistrations || [],
+        contactInquiries: json.contactInquiries || []
+      });
+    } catch (err: any) {
+      setError(err.message || "An error occurred");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoginError(false);
+
+    // Verify credentials
+    if (username.trim().toLowerCase() === "admin" && password === "Admin@Errymaple2026") {
+      sessionStorage.setItem("admin_auth", "true");
+      setIsAuthenticated(true);
+      fetchSubmissions();
+    } else {
+      setLoginError(true);
+    }
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("admin_auth");
+    setIsAuthenticated(false);
+    setUsername("");
+    setPassword("");
+  };
+
+  const getFilteredData = () => {
+    const list = 
+      activeTab === "quick" 
+        ? data.quickAdmissions 
+        : activeTab === "registration"
+        ? data.highSchoolRegistrations
+        : data.contactInquiries;
+
+    if (!searchQuery.trim()) return list;
+
+    return list.filter((item: any) => {
+      const searchFields = [
+        item.data.name,
+        item.data.studentName,
+        item.data.parentName,
+        item.data.email,
+        item.data.parentEmail,
+        item.data.phone,
+        item.data.parentPhone,
+        item.data.school,
+        item.data.subject
+      ].filter(Boolean).map(field => field.toLowerCase());
+
+      return searchFields.some(field => field.includes(searchQuery.toLowerCase()));
+    });
+  };
+
+  const getExportData = () => {
+    const filtered = getFilteredData();
+    if (filtered.length === 0) return;
+
+    // Extract headers from data keys
+    const sample = filtered[0];
+    const dataKeys = Object.keys(sample.data);
+    const headers = ["ID", "Timestamp", ...dataKeys];
+    
+    const csvContent = [
+      headers.join(","),
+      ...filtered.map((item: any) => {
+        return [
+          item.id,
+          new Date(item.timestamp).toLocaleString(),
+          ...dataKeys.map(key => {
+            const val = item.data[key] || "";
+            // Escape double quotes
+            return `"${val.toString().replace(/"/g, '""')}"`;
+          })
+        ].join(",");
+      })
+    ].join("\n");
+
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", `errymaple_${activeTab}_submissions.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const totalCount = data.quickAdmissions.length + data.highSchoolRegistrations.length + data.contactInquiries.length;
+
+  return (
+    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans p-6 sm:p-12 relative overflow-hidden flex items-center justify-center">
+      {/* Background decorations */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-school-gold/5 rounded-full blur-3xl pointer-events-none" />
+
+      <AnimatePresence mode="wait">
+        {!isAuthenticated ? (
+          /* LOGIN SCREEN */
+          <motion.div 
+            key="login-box"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -30 }}
+            className="w-full max-w-md bg-slate-950/80 border border-slate-800 p-8 rounded-[36px] shadow-2xl relative z-10 space-y-6"
+          >
+            {/* Logo Badge */}
+            <div className="flex flex-col items-center text-center space-y-2">
+              <div className="bg-slate-900 p-3 rounded-full border border-school-gold/20 shadow-md">
+                <img src="/images/egs_logo.jpg" alt="Errymaple Seal" className="h-16 w-16 object-contain rounded-full" />
+              </div>
+              <h2 className="text-xl font-bold uppercase tracking-widest text-school-gold">Errymaple Group</h2>
+              <h3 className="text-2xl font-bold font-serif text-white">Administrator Access</h3>
+              <p className="text-slate-400 text-xs max-w-xs">Enter credentials below to view admissions database.</p>
+            </div>
+
+            <form onSubmit={handleLogin} className="space-y-4">
+              {loginError && (
+                <motion.div 
+                  initial={{ shake: true }}
+                  animate={{ x: [0, -10, 10, -10, 10, 0] }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-rose-950/40 border border-rose-900/40 text-rose-350 p-3 rounded-xl text-xs flex items-center gap-2"
+                >
+                  <ShieldAlert className="h-4 w-4 shrink-0" />
+                  <span>Invalid username or password credentials.</span>
+                </motion.div>
+              )}
+
+              <div className="space-y-1">
+                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Username</label>
+                <div className="relative">
+                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                  <input 
+                    type="text" 
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    placeholder="admin"
+                    className="w-full bg-slate-900/80 border border-slate-800 px-10 py-3 rounded-xl text-sm outline-none focus:border-school-gold text-white placeholder-slate-650"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1">
+                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Password</label>
+                <div className="relative">
+                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                  <input 
+                    type="password" 
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    placeholder="••••••••"
+                    className="w-full bg-slate-900/80 border border-slate-800 px-10 py-3 rounded-xl text-sm outline-none focus:border-school-gold text-white"
+                  />
+                </div>
+              </div>
+
+              <Button variant="gold" className="w-full py-6 font-bold mt-2 shadow-lg hover:shadow-school-gold/20">
+                Authenticate Securely
+              </Button>
+            </form>
+
+            {/* Helper credentials banner for testing */}
+            <div className="bg-slate-900/50 border border-slate-850 p-3.5 rounded-xl text-[11px] text-slate-500 space-y-1 text-center">
+              <span className="font-bold text-slate-400 block uppercase tracking-wider">Demo Credentials</span>
+              <p>Username: <code className="bg-slate-950 px-1 py-0.5 rounded text-school-gold">admin</code></p>
+              <p>Password: <code className="bg-slate-950 px-1 py-0.5 rounded text-school-gold">Admin@Errymaple2026</code></p>
+            </div>
+          </motion.div>
+        ) : (
+          /* DASHBOARD PANEL */
+          <motion.div 
+            key="dashboard-panel"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="w-full max-w-7xl space-y-8 relative z-10 align-top self-start"
+          >
+            {/* Navigation & Header */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-slate-800">
+              <div className="space-y-2">
+                <Link 
+                  href="/" 
+                  className="inline-flex items-center gap-2 text-xs font-bold text-school-gold hover:text-white transition-colors"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  <span>Back to Portal Home</span>
+                </Link>
+                <h1 className="text-3xl sm:text-4xl font-bold font-serif text-white flex items-center gap-3">
+                  <School className="h-9 w-9 text-school-gold" />
+                  Admissions & Inquiries Dashboard
+                </h1>
+                <p className="text-slate-400 text-sm">
+                  Manage and export student applications from the Errymaple Group of Schools portal.
+                </p>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <Button 
+                  variant="outline" 
+                  onClick={fetchSubmissions} 
+                  disabled={loading}
+                  className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white flex items-center gap-2"
+                >
+                  <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+                  <span>Refresh</span>
+                </Button>
+                <Button 
+                  onClick={getExportData}
+                  disabled={loading || getFilteredData().length === 0}
+                  variant="gold"
+                  className="font-bold flex items-center gap-2"
+                >
+                  <Download className="h-4 w-4" />
+                  <span>Export CSV</span>
+                </Button>
+                <Button 
+                  variant="destructive"
+                  onClick={handleLogout}
+                  className="font-bold flex items-center gap-2"
+                >
+                  <LogOut className="h-4 w-4" />
+                  <span className="hidden sm:inline">Logout</span>
+                </Button>
+              </div>
+            </div>
+
+            {/* Info Alert Box */}
+            <div className="bg-blue-950/40 border border-blue-800/40 p-4 rounded-2xl flex items-start gap-3.5 text-blue-300">
+              <Info className="h-5 w-5 shrink-0 mt-0.5" />
+              <div className="text-xs sm:text-sm leading-relaxed">
+                <p className="font-bold text-white mb-0.5">Database Source File</p>
+                <p>
+                  These records are pulled from the local file <code className="bg-slate-950 px-1.5 py-0.5 rounded text-school-gold">submissions.json</code> in your project root. Every time a visitor submits a form on the website, it logs here in real-time. In a production environment, this dashboard would be password-protected and connected to an online SQL/NoSQL database or email SMTP servers.
+                </p>
+              </div>
+            </div>
+
+            {/* Stats Cards Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { label: "Total Applications", value: totalCount, desc: "Combined queries", icon: Users, color: "border-slate-800 text-slate-350" },
+                { label: "Quick Admissions", value: data.quickAdmissions.length, desc: "From landing page modal", icon: Calendar, color: "border-slate-800 text-school-gold" },
+                { label: "High School Regs", value: data.highSchoolRegistrations.length, desc: "Full online applications", icon: FileText, color: "border-slate-800 text-school-gold" },
+                { label: "Contact Inquiries", value: data.contactInquiries.length, desc: "Messages & requests", icon: Mail, color: "border-slate-800 text-slate-355" },
+              ].map((stat, idx) => {
+                const Icon = stat.icon;
+                return (
+                  <div key={idx} className={`bg-slate-950/60 border ${stat.color} p-6 rounded-3xl shadow-xl space-y-4`}>
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400">{stat.label}</span>
+                      <div className="bg-slate-900 p-2 rounded-xl text-school-gold">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                    </div>
+                    <div className="space-y-1">
+                      <p className="text-3xl font-extrabold text-white">{stat.value}</p>
+                      <p className="text-[11px] text-slate-500">{stat.desc}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Search & Tabs Controls */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-4">
+              <div className="flex bg-slate-950/80 p-1.5 rounded-2xl border border-slate-800 w-fit">
+                {[
+                  { id: "quick", label: "Quick Admissions" },
+                  { id: "registration", label: "HS Registrations" },
+                  { id: "contact", label: "Contact Inquiries" }
+                ].map(tab => (
+                  <button
+                    key={tab.id}
+                    onClick={() => {
+                      setActiveTab(tab.id as any);
+                      setSearchQuery("");
+                    }}
+                    className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 ${
+                      activeTab === tab.id
+                        ? "bg-slate-800 text-white shadow-lg"
+                        : "text-slate-400 hover:text-white"
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+
+              <div className="relative max-w-sm w-full">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <input
+                  type="text"
+                  placeholder="Search by name, email, phone..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-slate-950/80 border border-slate-850 px-10 py-2.5 rounded-2xl text-sm outline-none focus:border-school-gold text-white placeholder-slate-500"
+                />
+              </div>
+            </div>
+
+            {/* Submissions Table / View */}
+            <div className="bg-slate-950/40 border border-slate-850 rounded-[32px] overflow-hidden shadow-2xl">
+              {loading ? (
+                <div className="py-24 text-center space-y-4">
+                  <RefreshCw className="h-8 w-8 text-school-gold animate-spin mx-auto" />
+                  <p className="text-slate-400 text-sm">Loading submissions...</p>
+                </div>
+              ) : error ? (
+                <div className="py-24 text-center space-y-4 text-rose-400">
+                  <ShieldAlert className="h-10 w-10 mx-auto" />
+                  <p className="text-sm font-semibold">Error Loading Data: {error}</p>
+                  <Button onClick={fetchSubmissions} variant="outline" className="border-rose-900/40 text-rose-350">
+                    Try Again
+                  </Button>
+                </div>
+              ) : getFilteredData().length === 0 ? (
+                <div className="py-24 text-center space-y-4 text-slate-500">
+                  <CheckCircle2 className="h-10 w-10 mx-auto text-slate-600" />
+                  <p className="text-sm">No applications found.</p>
+                  <p className="text-xs text-slate-650 max-w-xs mx-auto">
+                    {searchQuery ? "Try refining your search keyword." : "Submissions will show here once filled out by a visitor."}
+                  </p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="border-b border-slate-850 bg-slate-950/50 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
+                        <th className="py-4 px-6">Timestamp</th>
+                        <th className="py-4 px-6">Primary Details</th>
+                        <th className="py-4 px-6">Curriculum / Choice</th>
+                        <th className="py-4 px-6">Submission Details</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-850/50 text-xs sm:text-sm">
+                      {getFilteredData().map((item: any) => {
+                        const date = new Date(item.timestamp).toLocaleString();
+                        return (
+                          <tr key={item.id} className="hover:bg-slate-900/30 transition-colors">
+                            <td className="py-5 px-6 text-slate-500 whitespace-nowrap align-top">
+                              {date}
+                              <span className="block text-[10px] text-slate-600 font-mono mt-1">{item.id}</span>
+                            </td>
+                            
+                            {/* Render based on form type */}
+                            {activeTab === "quick" && (
+                              <>
+                                <td className="py-5 px-6 align-top">
+                                  <p className="font-bold text-white text-base">{item.data.name}</p>
+                                  <span className="block text-slate-400 mt-1">{item.data.email}</span>
+                                  <span className="block text-slate-500 text-xs mt-0.5">{item.data.phone}</span>
+                                </td>
+                                <td className="py-5 px-6 align-top">
+                                  <span className="inline-block bg-blue-900/30 text-blue-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-blue-800/40">
+                                    {item.data.school}
+                                  </span>
+                                  <p className="text-slate-400 text-xs mt-2 font-medium">Target Level: {item.data.grade}</p>
+                                </td>
+                                <td className="py-5 px-6 align-top max-w-sm text-slate-400 leading-relaxed text-xs">
+                                  {item.data.message || <span className="text-slate-600 italic">No custom questions.</span>}
+                                </td>
+                              </>
+                            )}
+
+                            {activeTab === "registration" && (
+                              <>
+                                <td className="py-5 px-6 align-top">
+                                  <div className="space-y-1">
+                                    <p className="text-[10px] font-bold text-school-gold uppercase tracking-wider">Student</p>
+                                    <p className="font-bold text-white text-base leading-tight">{item.data.studentName}</p>
+                                    <p className="text-slate-550 text-xs">DOB: {item.data.studentDob} | {item.data.studentGender}</p>
+                                  </div>
+                                  <div className="space-y-1 mt-4 pt-3 border-t border-slate-850/60">
+                                    <p className="text-[10px] font-bold text-blue-400 uppercase tracking-wider">Parent/Guardian</p>
+                                    <p className="font-bold text-slate-200 leading-none">{item.data.parentName}</p>
+                                    <p className="text-slate-400 text-xs">{item.data.parentEmail}</p>
+                                    <p className="text-slate-500 text-xs">{item.data.parentPhone}</p>
+                                  </div>
+                                </td>
+                                <td className="py-5 px-6 align-top space-y-3.5">
+                                  <div>
+                                    <span className="inline-block bg-slate-900 text-school-gold text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-school-gold/20">
+                                      {item.data.targetForm}
+                                    </span>
+                                  </div>
+                                  <div>
+                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Program Track:</span>
+                                    <span className="text-slate-300 text-xs">{item.data.programTrack}</span>
+                                  </div>
+                                  <div>
+                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Status:</span>
+                                    <span className="text-slate-300 text-xs">{item.data.boardingStatus}</span>
+                                  </div>
+                                </td>
+                                <td className="py-5 px-6 align-top text-xs space-y-3.5 text-slate-400 leading-relaxed max-w-sm">
+                                  <div>
+                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Previous School:</span>
+                                    <span>{item.data.prevSchool || <span className="text-slate-650 italic">None logged</span>}</span>
+                                  </div>
+                                  <div>
+                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Residential Address:</span>
+                                    <span>{item.data.parentAddress}</span>
+                                  </div>
+                                </td>
+                              </>
+                            )}
+
+                            {activeTab === "contact" && (
+                              <>
+                                <td className="py-5 px-6 align-top">
+                                  <p className="font-bold text-white text-base leading-tight">{item.data.name}</p>
+                                  <span className="block text-slate-400 mt-1">{item.data.email}</span>
+                                </td>
+                                <td className="py-5 px-6 align-top">
+                                  <p className="font-bold text-slate-200">{item.data.subject}</p>
+                                </td>
+                                <td className="py-5 px-6 align-top max-w-md text-slate-400 leading-relaxed text-xs">
+                                  {item.data.message}
+                                </td>
+                              </>
+                            )}
+
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
