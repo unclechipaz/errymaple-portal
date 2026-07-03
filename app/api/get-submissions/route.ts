@@ -4,7 +4,10 @@ import path from "path";
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), "submissions.json");
+    const isVercel = process.env.VERCEL === "1" || process.env.NODE_ENV === "production";
+    const filePath = isVercel 
+      ? path.join("/tmp", "submissions.json") 
+      : path.join(process.cwd(), "submissions.json");
     
     let submissions = {
       quickAdmissions: [],

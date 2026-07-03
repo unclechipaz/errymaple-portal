@@ -11,7 +11,10 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: "Missing form type" }, { status: 400 });
     }
 
-    const filePath = path.join(process.cwd(), "submissions.json");
+    const isVercel = process.env.VERCEL === "1" || process.env.NODE_ENV === "production";
+    const filePath = isVercel 
+      ? path.join("/tmp", "submissions.json") 
+      : path.join(process.cwd(), "submissions.json");
     
     let submissions: any = {
       quickAdmissions: [],
