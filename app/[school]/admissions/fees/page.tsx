@@ -170,9 +170,20 @@ export default function SchoolFees({ params }: PageProps) {
               </div>
             </div>
 
-            <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed italic border-t border-slate-100 dark:border-slate-800 pt-4">
-              * Note: Boarding fees cover all meals, laundry services, and academic tutorials.
-            </p>
+            <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+              <p className="text-slate-500 dark:text-slate-400 text-xs italic">
+                * Note: Boarding fees cover all meals, laundry services, and academic tutorials.
+              </p>
+              <a 
+                href="/documents/errymaple_requirements.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 dark:bg-school-gold dark:hover:bg-amber-600 text-white dark:text-slate-950 px-5 py-2.5 rounded-xl text-xs font-bold transition-all shadow-sm shrink-0"
+              >
+                <FileText className="h-4 w-4" />
+                <span>View Requirements List (PDF)</span>
+              </a>
+            </div>
           </div>
 
         </section>

@@ -53,7 +53,7 @@ export interface SchoolData {
   clubs: { name: string; desc: string; achievements: string }[];
   events: { title: string; date: string; time: string; location: string; category: string }[];
   gallery: { name: string; img: string; category: string }[];
-  downloads: { name: string; size: string; type: string }[];
+  downloads: { name: string; size: string; type: string; link?: string }[];
   calendar: { event: string; date: string; type: string }[];
   testimonials: { quote: string; author: string; role: string }[];
 }
@@ -197,6 +197,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { name: "Swimming Practice Lanes", img: "/images/swimming_gallery.png", category: "Swimming" },
     ],
     downloads: [
+      { name: "List of Requirements (Boarding & Day) 2026", size: "10.4 MB", type: "PDF", link: "/documents/errymaple_requirements.pdf" },
       { name: "High School Admission Form 2026", size: "1.4 MB", type: "PDF" },
       { name: "School Fees Schedule & Bank Details", size: "850 KB", type: "PDF" },
       { name: "Boarding Hostel Rules & Dress Code", size: "1.1 MB", type: "PDF" }

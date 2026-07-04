@@ -21,8 +21,12 @@ export default function SchoolDownloads({ params }: PageProps) {
     notFound();
   }
 
-  const handleDownload = (fileName: string) => {
-    alert(`Starting download for: ${fileName}`);
+  const handleDownload = (fileName: string, fileLink?: string) => {
+    if (fileLink) {
+      window.open(fileLink, "_blank");
+    } else {
+      alert(`Starting download for: ${fileName}`);
+    }
   };
 
   return (
@@ -75,7 +79,7 @@ export default function SchoolDownloads({ params }: PageProps) {
               </div>
 
               <Button
-                onClick={() => handleDownload(d.name)}
+                onClick={() => handleDownload(d.name, d.link)}
                 className={`font-bold w-full sm:w-auto gap-1.5 ${schoolInfo.btnTheme}`}
               >
                 <Download className="h-4.5 w-4.5" />
