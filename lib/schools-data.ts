@@ -143,7 +143,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { name: "Green Learning Environment", desc: "Beautiful surroundings and landscaped grounds create a peaceful atmosphere that encourages learning, creativity, and personal growth.", image: "/images/leadership_gallery.png" },
     ],
     fees: [
-      { termly: "$950", boarding: "$1,650", uniform: "$250", application: "$20", note: "Boarding fees cover all meals, laundry services, and academic tutorials." }
+      { termly: "USD 380", boarding: "USD 1,000", uniform: "USD 250", application: "USD 20", note: "Registration fees are USD 100 for Boarders and USD 50 for Day Scholars. Day Scholars also have a USD 10 grocery fee while Boarders have a grocery list or USD 40 equivalent." }
     ],
     scholarships: [
       { title: "Academic Excellence Bursary", eligibility: "Top 3 students entering Form 1 or Lower Sixth", coverage: "50% to 100% Tuition Waiver" },
