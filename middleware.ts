@@ -37,6 +37,6 @@ export const config = {
      * - _next/image (image optimization files)
      * - images, favicon.ico, icon.png, apple-icon.png (public assets)
      */
-    "/((?!api|_next/static|_next/image|images|favicon.ico|icon.png|apple-icon.png).*)",
+    "/((?!api|_next/static|_next/image|images|documents|favicon.ico|icon.png|apple-icon.png).*)",
   ],
 };
