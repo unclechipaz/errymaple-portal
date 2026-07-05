@@ -34,6 +34,7 @@ export async function GET() {
     kvUrlDetected: !!kvUrl,
     kvTokenDetected: !!kvToken,
     parsedFromUrl,
+    parsedUrl: kvUrl || "none",
     detectedKeys: kvKeys,
     connectionStatus: "Not attempted"
   };
@@ -67,6 +68,16 @@ export async function GET() {
       }
     } catch (e: any) {
       diagnostics.connectionStatus = `Error: Connection exception: ${e.message}`;
+      diagnostics.errorDetails = {
+        message: e.message,
+        code: e.code,
+        cause: e.cause ? {
+          message: e.cause.message,
+          code: e.cause.code,
+          errno: e.cause.errno,
+          syscall: e.cause.syscall
+        } : "none"
+      };
     }
   } else {
     diagnostics.connectionStatus = "Skipped: Missing KV_REST_API_URL or KV_REST_API_TOKEN env variables.";
