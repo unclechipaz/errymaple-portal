@@ -83,7 +83,6 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
       dropdown: [
         { name: "Apply Online", href: `/${schoolSlug}/admissions/apply` },
         { name: "Tuition & Fees", href: `/${schoolSlug}/admissions/fees` },
-        { name: "Scholarships", href: `/${schoolSlug}/admissions/scholarships` },
         { name: "Boarding Life", href: `/${schoolSlug}/admissions/boarding` },
         { name: "Admissions FAQ", href: `/${schoolSlug}/admissions/faq` },
       ],
