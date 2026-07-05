@@ -247,6 +247,27 @@ export default function SchoolCurriculum({ params }: PageProps) {
             </motion.div>
 
           </div>
+
+          {/* Accreditation Logos Section */}
+          <div className="border-t border-slate-200 dark:border-slate-800/80 pt-16 space-y-8 max-w-4xl mx-auto">
+            <div className="text-center space-y-2">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-school-gold">Accreditations & Examination Boards</span>
+              <h3 className="text-xl font-bold font-serif text-slate-900 dark:text-white">Certified Education Partners</h3>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center">
+              {[0, 1, 2, 3].map((num) => (
+                <div key={num} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-[180px] h-[110px] flex items-center justify-center group">
+                  <img 
+                    src={`/images/accreditations/accreditation_${num}.png`} 
+                    alt={`Accreditation Logo ${num}`} 
+                    className="max-h-full max-w-full object-contain filter grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
         </section>
       </main>
     );
