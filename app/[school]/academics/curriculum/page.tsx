@@ -256,12 +256,17 @@ export default function SchoolCurriculum({ params }: PageProps) {
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 items-center justify-items-center">
-              {[0, 1, 2, 3].map((num) => (
-                <div key={num} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-[180px] h-[110px] flex items-center justify-center group">
+              {[
+                { name: "France Education DELF", file: "delf.png" },
+                { name: "HEXCO", file: "hexco.png" },
+                { name: "VID driving", file: "vid.png" },
+                { name: "ZIMSEC", file: "zimsec.jpg" }
+              ].map((logo) => (
+                <div key={logo.name} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-5 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-[180px] h-[110px] flex items-center justify-center group">
                   <img 
-                    src={`/images/accreditations/accreditation_${num}.png`} 
-                    alt={`Accreditation Logo ${num}`} 
-                    className="max-h-full max-w-full object-contain filter grayscale opacity-75 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300"
+                    src={`/images/accreditations/${logo.file}`} 
+                    alt={logo.name} 
+                    className="max-h-full max-w-full object-contain"
                   />
                 </div>
               ))}
