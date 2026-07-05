@@ -92,7 +92,6 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
       href: "#",
       dropdown: [
         { name: "Curriculum", href: `/${schoolSlug}/academics/curriculum` },
-        { name: "Departments", href: `/${schoolSlug}/academics/departments` },
         { name: "Exam Results", href: `/${schoolSlug}/academics/results` },
         { name: "School Library", href: `/${schoolSlug}/academics/library` },
       ],
