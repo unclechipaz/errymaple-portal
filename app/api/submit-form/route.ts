@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     // Append to corresponding array based on formType
     if (data.formType === "quick_admissions") {
       submissions.quickAdmissions.push(newSubmission);
-    } else if (data.formType === "high_school_registration") {
+    } else if (data.formType === "high_school_registration" || data.formType === "school_admissions_apply") {
       submissions.highSchoolRegistrations.push(newSubmission);
     } else if (data.formType === "contact_inquiry") {
       submissions.contactInquiries.push(newSubmission);
