@@ -1,10 +1,30 @@
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const kvUrl = process.env.KV_REST_API_URL;
-  const kvToken = process.env.KV_REST_API_TOKEN;
+  const connectionString = process.env.KV_REDIS_URL || process.env.KV_URL;
   
-  // Also check other common variations just in case Vercel set them with different prefixes
+  let kvUrl = process.env.KV_REST_API_URL;
+  let kvToken = process.env.KV_REST_API_TOKEN;
+
+  let parsedFromUrl = false;
+
+  if (!kvUrl && connectionString) {
+    try {
+      // connectionString: rediss://default:password@host:port
+      const cleanUrl = connectionString.trim();
+      const match = cleanUrl.match(/^rediss?:\/\/(?:([^:]*):)?([^@]+)@([^:]+)(?::(\d+))?$/);
+      if (match) {
+        const password = match[2];
+        const host = match[3];
+        kvUrl = `https://${host}`;
+        kvToken = password;
+        parsedFromUrl = true;
+      }
+    } catch (e: any) {
+      console.error("Error parsing connection string:", e);
+    }
+  }
+
   const envKeys = Object.keys(process.env);
   const kvKeys = envKeys.filter(k => k.includes("KV") || k.includes("REDIS"));
 
@@ -13,6 +33,7 @@ export async function GET() {
     nodeEnv: process.env.NODE_ENV || "not_set",
     kvUrlDetected: !!kvUrl,
     kvTokenDetected: !!kvToken,
+    parsedFromUrl,
     detectedKeys: kvKeys,
     connectionStatus: "Not attempted"
   };

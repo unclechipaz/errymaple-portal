@@ -2,9 +2,33 @@ import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 
+function getDbCredentials() {
+  let kvUrl = process.env.KV_REST_API_URL;
+  let kvToken = process.env.KV_REST_API_TOKEN;
+
+  if (!kvUrl) {
+    const connectionString = process.env.KV_REDIS_URL || process.env.KV_URL;
+    if (connectionString) {
+      try {
+        const cleanUrl = connectionString.trim();
+        const match = cleanUrl.match(/^rediss?:\/\/(?:([^:]*):)?([^@]+)@([^:]+)(?::(\d+))?$/);
+        if (match) {
+          const password = match[2];
+          const host = match[3];
+          kvUrl = `https://${host}`;
+          kvToken = password;
+        }
+      } catch (e) {
+        console.error("Error parsing connection string:", e);
+      }
+    }
+  }
+
+  return { kvUrl, kvToken };
+}
+
 async function getSubmissions() {
-  const kvUrl = process.env.KV_REST_API_URL;
-  const kvToken = process.env.KV_REST_API_TOKEN;
+  const { kvUrl, kvToken } = getDbCredentials();
 
   if (kvUrl && kvToken) {
     try {
