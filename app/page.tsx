@@ -198,18 +198,7 @@ export default function Home() {
         "The Errymaple Driving School is expected to begin enrolling learners immediately, marking the start of a new chapter in the school's mission to provide holistic education and practical life skills for every student."
       ]
     },
-    {
-      title: "Cambridge Academic Honors",
-      desc: "Errymaple students achieve top-in-country awards for Cambridge examinations, demonstrating outstanding academic capacity.",
-      date: "June 15, 2026",
-      img: "/images/news_cambridge.png",
-      badge: "Academic",
-      author: "School Administration",
-      content: [
-        "Errymaple Group of Schools is proud to announce outstanding academic achievements in the Cambridge International Examinations.",
-        "Several students achieved Top in Country honors, reflecting the commitment of our educators and the exceptional diligence of our learners. This academic success reinforces our reputation as a leading provider of high-quality international education."
-      ]
-    },
+
     {
       title: "National Robotics Champions",
       desc: "Our high school STEM robotics squad takes first place in the national engineering olympiad, qualifying for global finals.",
