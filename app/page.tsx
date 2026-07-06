@@ -178,6 +178,27 @@ export default function Home() {
 
   const news = [
     {
+      title: "Launch of Errymaple Driving School",
+      desc: "Errymaple Group of Schools has reached another important milestone in its commitment to providing practical, career-oriented education with the successful registration and launch of the Errymaple Driving School.",
+      date: "July 6, 2026",
+      img: "/images/news_driving.jpg",
+      badge: "Milestone",
+      author: "School Administration",
+      content: [
+        "Errymaple Group of Schools has reached another important milestone in its commitment to providing practical, career-oriented education with the successful registration and launch of the Errymaple Driving School.",
+        "The new driving school is designed to equip learners with essential road safety knowledge, practical driving skills, and the opportunity to obtain a valid driver's licence upon completing their studies. This initiative reflects the institution's vision of preparing students not only for academic success but also for life beyond the classroom.",
+        "Speaking on the development, school authorities highlighted that modern education should empower students with practical competencies that increase their employability, independence, and readiness for the real world.",
+        "The introduction of the driving school means that learners will now have access to structured driving lessons conducted by qualified instructors using modern training vehicles. Upon meeting the required standards and successfully completing the licensing process, students will be able to leave school with a driver's licence—an important qualification that can open doors to employment and entrepreneurship opportunities.",
+        "The driving school joins a growing list of hands-on professional programmes already offered by the Errymaple Group of Schools. These include:",
+        "• Computer Servicing and Maintenance\n• Electrical Engineering\n• ICDL (International Computer Driving Licence)\n• Driving Lessons and Road Safety Training",
+        "These practical courses are aimed at developing technical and vocational skills that complement traditional academic learning. By integrating professional training into the school environment, Errymaple is ensuring that students graduate with both academic qualifications and industry-relevant competencies.",
+        "School officials stated that the institution remains committed to innovation and skills-based education, positioning learners to compete effectively in today's technology-driven and skills-oriented world.",
+        "The launch of the driving school further strengthens Errymaple Group of Schools' reputation as a forward-thinking educational institution that focuses on producing confident, skilled, and self-reliant graduates.",
+        "\"At Errymaple, we don't just educate—we empower for life.\"",
+        "The Errymaple Driving School is expected to begin enrolling learners immediately, marking the start of a new chapter in the school's mission to provide holistic education and practical life skills for every student."
+      ]
+    },
+    {
       title: "Cambridge Academic Honors",
       desc: "Errymaple students achieve top-in-country awards for Cambridge examinations, demonstrating outstanding academic capacity.",
       date: "June 15, 2026",
