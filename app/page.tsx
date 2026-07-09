@@ -32,6 +32,9 @@ export default function Home() {
           return `${window.location.protocol}//${prefix}.localhost${port}`;
         }
       }
+      if (schoolSlug === "international-school") {
+        return "https://errymapleinternational.ac.zw";
+      }
       return `https://${prefix}.errymaplegroup.ac.zw`;
     }
     return href;
