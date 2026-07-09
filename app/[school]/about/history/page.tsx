@@ -34,11 +34,11 @@ export default function SchoolHistory({ params }: PageProps) {
         
         {/* Intro */}
         <div className="space-y-6 text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold font-serif text-slate-900 dark:text-white">
-            A Legacy of Shaping Leaders
+          <h2 className="text-2xl sm:text-4xl font-extrabold font-serif text-slate-900 dark:text-white leading-tight">
+            {schoolInfo.historyTitle || "A Legacy of Shaping Leaders"}
           </h2>
-          <p className="text-slate-650 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
-            Since opening our doors, {schoolInfo.name} has grown from a localized vision into a premier division of Errymaple Trust Schools. We remain dedicated to training students to dream big, believe in their potential, and achieve greatness.
+          <p className="text-slate-650 dark:text-slate-405 text-sm sm:text-base leading-relaxed">
+            {schoolInfo.historyIntro || `Since opening our doors, ${schoolInfo.name} has grown from a localized vision into a premier division of Errymaple Trust Schools. We remain dedicated to training students to dream big, believe in their potential, and achieve greatness.`}
           </p>
         </div>
 
@@ -84,6 +84,33 @@ export default function SchoolHistory({ params }: PageProps) {
             );
           })}
         </div>
+
+        {/* Outro */}
+        {schoolInfo.historyOutro && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-16 text-center max-w-3xl mx-auto p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 shadow-lg space-y-6 relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="text-slate-600 dark:text-slate-350 text-sm sm:text-base leading-relaxed space-y-4 font-sans text-center">
+              {schoolInfo.historyOutro.split("\n\n").map((para, idx) => {
+                if (para.includes("We are Dreamers.") || para.includes("Top of the Best.") || para.includes("Five years.")) {
+                  return (
+                    <div key={idx} className="font-bold text-slate-900 dark:text-white text-base py-2 border-t border-slate-100 dark:border-slate-850/50 mt-4 space-y-1">
+                      {para.split("\n").map((line, lidx) => (
+                        <p key={lidx}>{line}</p>
+                      ))}
+                    </div>
+                  );
+                }
+                return <p key={idx} className="text-justify sm:text-center">{para}</p>;
+              })}
+            </div>
+          </motion.div>
+        )}
 
       </section>
     </main>

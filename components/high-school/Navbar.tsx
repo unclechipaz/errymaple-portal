@@ -73,7 +73,6 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
         { name: "School History", href: `/${schoolSlug}/about/history` },
         { name: "Vision & Mission", href: `/${schoolSlug}/about/vision-mission` },
         { name: "School Leadership", href: `/${schoolSlug}/about/leadership` },
-        { name: "Staff Profiles", href: `/${schoolSlug}/about/staff` },
         { name: "Campus Facilities", href: `/${schoolSlug}/about/facilities` },
       ],
     },

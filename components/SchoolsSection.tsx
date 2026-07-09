@@ -7,6 +7,22 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 
 export default function SchoolsSection() {
+  const getCampusUrl = (href: string) => {
+    if (typeof window !== "undefined") {
+      const host = window.location.host;
+      if (host.includes("localhost")) {
+        if (href === "/high-school") return "http://high.localhost:3000";
+        if (href === "/junior-school") return "http://junior.localhost:3000";
+        if (href === "/international-school") return "http://international.localhost:3000";
+      } else {
+        if (href === "/high-school") return "https://high.errymaplegroup.ac.zw";
+        if (href === "/junior-school") return "https://junior.errymaplegroup.ac.zw";
+        if (href === "/international-school") return "https://errymapleinternational.ac.zw";
+      }
+    }
+    return href;
+  };
+
   const cards = [
     {
       name: "Errymaple High School",
@@ -126,8 +142,8 @@ export default function SchoolsSection() {
 
                   {/* Card Footer */}
                   <CardFooter className="pt-2 pb-6">
-                    <Link
-                      href={card.href}
+                    <a
+                      href={getCampusUrl(card.href)}
                       className="w-full"
                     >
                       <Button 
@@ -137,7 +153,7 @@ export default function SchoolsSection() {
                         Explore Campus
                         <ArrowUpRight className="h-4 w-4 ml-2 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                       </Button>
-                    </Link>
+                    </a>
                   </CardFooter>
                 </Card>
               </motion.div>

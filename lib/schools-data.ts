@@ -34,6 +34,9 @@ export interface SchoolData {
   leadershipIntro?: string;
   facilitiesIntro?: string;
   chooseReasons?: string[];
+  historyTitle?: string;
+  historyIntro?: string;
+  historyOutro?: string;
   visionText: string;
   missionText: string;
   coreValues: { name: string; desc: string; icon: any }[];
@@ -350,20 +353,20 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     btnTheme: "bg-red-600 text-white hover:bg-red-700",
     primaryColorHex: "#7F1D1D",
     accentColorHex: "#C5A059",
-    email: "admissions@errymapleinternational.co.zw",
-    phone: "+263 54 252 900 / +263 773 999 888",
-    address: "150 Eastlea Suburbs, Zvishavane, Zimbabwe",
+    email: "errymaple@live.com",
+    phone: "+263 77 553 9914 / +263 77 699 4154",
+    address: "1698 Musuki Plots, Masvingo Road, Zvishavane, Zimbabwe",
     aboutText: "Errymaple International School offers Cambridge IGCSE, AS, and A-Level courses with bilingual study pathways to prepare students for global university placement.",
     welcomeText: "Welcome to Errymaple International School. Our commitment is to prepare students to face global academic standards. By delivering the Cambridge Assessment International Education framework and DELF French qualifications, we pave pathways to top universities worldwide.",
-    welcomeAuthor: "Dr. L. Harrison",
-    welcomeRole: "Director of Academics",
-    visionText: "To prepare world-class students for international universities and global placement.",
-    missionText: "To deliver Cambridge Assessment frameworks combined with bilingual DELF training for global competitiveness.",
+    welcomeAuthor: "Mr. J. Jengeta",
+    welcomeRole: "Principal",
+    visionText: "To become a world class provider of real education",
+    missionText: "To nurture ethical, innovative, technological & practical oriented global leaders",
     coreValues: [
-      { name: "Academic Rigour", desc: "Securing Cambridge IGCSE and A-Level distinctions.", icon: Award },
-      { name: "Global Perspectives", desc: "Analyzing cross-cultural challenges, geopolitics, and human rights.", icon: Globe },
-      { name: "Bilingual Advantage", desc: "Excelling in fluent French and English communications.", icon: BookOpen },
-      { name: "Tech Innovation", desc: "Pioneering STEM programming, AI projects, and scientific investigations.", icon: Cpu },
+      { name: "Financial Literacy", desc: "Equipping learners with budgeting, smart saving, and investments foundations.", icon: Landmark },
+      { name: "Leadership", desc: "Embodying moral responsibility, empathy, and administrative capability.", icon: Users },
+      { name: "Team working", desc: "Collaborating with respect, collective problem solving, and mutual respect.", icon: Heart },
+      { name: "Entrepreneurship", desc: "Encouraging problem-solving, start-up thinking, and creative risk-taking.", icon: Compass },
     ],
     stats: [
       { label: "Est. Since", value: "2022", icon: Calendar, desc: "A global vision" },
@@ -371,13 +374,18 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { label: "Languages", value: "Bilingual", icon: Globe, desc: "English & French tracks" },
       { label: "Uni Placements", value: "94%", icon: School, desc: "International entries" },
     ],
+    historyTitle: "🏫 ERRYMAPLE INTERNATIONAL SCHOOL: A JOURNEY OF GROWTH, INNOVATION & EXCELLENCE",
+    historyIntro: "From opening our doors to achieving record-breaking academic success, every year has marked a bold new chapter in our journey.",
+    historyOutro: "Five years. Five major milestones. One unstoppable vision.\n\nFrom a bold beginning in 2022 to record-breaking excellence in 2026, Errymaple International School continues to grow, innovate and redefine educational excellence.\n\nWe are Dreamers. We are Believers. We are Achievers.\n🌍 Top of the Best.",
     milestones: [
-      { year: "2022", title: "Inauguration of International Wing", desc: "Founded to deliver Cambridge Secondary pathways and global admissions advising.", icon: Building },
-      { year: "2024", title: "Cambridge Center Accreditation", desc: "Certified as an official Cambridge Assessment International Education Center (ZW809).", icon: Award },
-      { year: "2025", title: "DELF Certification Integration", desc: "Achieved 100% success rate in intermediate DELF French exams with Alliance Française accreditation.", icon: Globe },
+      { year: "2022", title: "THE BEGINNING", desc: "Errymaple International School officially opened its doors to the public — beginning a new era of world-class education, innovation and opportunity.", icon: Rocket },
+      { year: "2023", title: "RAISING THE BAR IN SPORTS", desc: "We opened a state-of-the-art sporting facility, creating an environment where talent, teamwork and excellence could thrive beyond the classroom.", icon: Trophy },
+      { year: "2024", title: "BUILDING FOR THE FUTURE", desc: "We unveiled a magnificent multi-purpose hall with a capacity of 2,000 people — a landmark facility designed for major school events, conferences, performances and community gatherings.", icon: Building },
+      { year: "2025", title: "ADVANCING SCIENCE & TECHNOLOGY", desc: "We strengthened 21st-century learning through state-of-the-art Computer and Science Laboratories, empowering learners with practical skills, scientific discovery and digital innovation.", icon: Cpu },
+      { year: "2026", title: "RECORD-BREAKING ACADEMIC EXCELLENCE", desc: "A defining year of outstanding achievement: 100% A-Level Pass Rate and 92% IGCSE Pass Rate.", icon: Award },
     ],
     staff: [
-      { name: "Dr. L. Harrison", role: "Director of Academics", qualification: "Ph.D in Curriculum Design & International Education", desc: "Overseeing Cambridge exam quality, university guidance counseling, and bilingual integrations.", email: "lharrison@errymapleinternational.co.zw" },
+      { name: "Mr. J. Jengeta", role: "Principal", qualification: "M.Ed in Educational Management & Administration", desc: "Responsible for the overall academic excellence, student character development, and strategic management of the international school.", email: "jjengeta@errymapleinternational.co.zw" },
       { name: "Mrs. C. Moreau", role: "Head of French Department", qualification: "M.A in French as a Foreign Language (Paris Sorbonne)", desc: "Managing the DELF/DALF pathways and international study tour exchanges.", email: "cmoreau@errymapleinternational.co.zw" }
     ],
     departments: [
@@ -386,12 +394,14 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { title: "Languages & Humanities", desc: "Developing native-level English and French language proficiency.", subjects: ["Cambridge English Language", "French Language (CEFR)", "Geography", "Sociology"] }
     ],
     facilities: [
-      { name: "Cambridge Science Laboratories", desc: "Advanced laboratory setups designed for international practical exams.", image: "/images/science_lab_gallery.png" },
-      { name: "Bilingual Resource Center", desc: "Access to French literature, international newspapers, and university catalog portals.", image: "/images/classrooms_gallery.png" },
-      { name: "Executive Residence Block", desc: "High-end student suites with private study desks and common media rooms.", image: "/images/leadership_gallery.png" }
+      { name: "Sporting Arena", desc: "A state-of-the-art outdoor sporting facility, providing premium basketball and court sports infrastructure to foster talent and physical excellence.", image: "/images/facilities_arena.jpg" },
+      { name: "Cambridge Science Laboratories", desc: "Advanced laboratory setups designed for international practical exams.", image: "/images/science_lab_international.jpg" },
+      { name: "Dining Hall", desc: "A premium, lodge-style dining facility offering structured, healthy, and high-quality meal plans to support student health, collaboration, and community boarding life.", image: "/images/facilities_dining.jpg" },
+      { name: "Well-Equipped Library", desc: "A vast repository of academic resources, literature, and study spaces, providing learners with a quiet environment for research, reflection, and reading.", image: "/images/facilities_library.jpg" },
+      { name: "Computer Laboratory", desc: "A state-of-the-art computer lab equipped with high-performance systems and high-speed internet, empowering students to excel in coding, research, and digital skills.", image: "/images/facilities_computer_lab.png" }
     ],
     fees: [
-      { termly: "$1,850", boarding: "$2,950", uniform: "$350", application: "$50", note: "International fees include all Cambridge practical lab charges and textbooks." }
+      { termly: "$750", boarding: "$1,600", uniform: "$350", application: "$50", note: "International fees include all Cambridge practical lab charges and textbooks." }
     ],
     scholarships: [
       { title: "Cambridge Learner Bursary", eligibility: "Outstanding performance in check-point or IGCSE exams", coverage: "Up to 75% Tuition Waiver" },

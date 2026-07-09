@@ -12,13 +12,7 @@ interface PageProps {
 }
 
 export default function SchoolStaff({ params }: PageProps) {
-  const { school } = use(params);
-  const schoolSlug = school as SchoolSlug;
-  const schoolInfo = schoolsData[schoolSlug];
-
-  if (!schoolInfo) {
-    notFound();
-  }
+  notFound();
 
   // Create additional mock staff for other positions to make it high-fidelity
   const extendedStaff = [

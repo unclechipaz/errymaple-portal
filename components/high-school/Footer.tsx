@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useParams } from "next/navigation";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, ArrowLeft } from "lucide-react";
 import { schoolsData, SchoolSlug } from "@/lib/schools-data";
 
@@ -12,9 +12,10 @@ interface FooterProps {
 export default function HighSchoolFooter({ schoolSlug: propSchoolSlug }: FooterProps) {
   const currentYear = new Date().getFullYear();
   const pathname = usePathname();
+  const params = useParams();
 
-  // Extract the active school slug from the pathname or prop
-  const schoolSlug = propSchoolSlug || (pathname.split("/")[1] || "high-school") as SchoolSlug;
+  // Extract the active school slug from the params, pathname or prop
+  const schoolSlug = propSchoolSlug || (params?.school || pathname.split("/")[1] || "high-school") as SchoolSlug;
   const schoolInfo = schoolsData[schoolSlug] || schoolsData["high-school"];
 
   const hasPrefix = pathname.startsWith(`/${schoolSlug}`);
@@ -71,7 +72,6 @@ export default function HighSchoolFooter({ schoolSlug: propSchoolSlug }: FooterP
               <li><Link href={getLink(`/${schoolSlug}`)} className="hover:text-school-gold transition-colors">Home</Link></li>
               <li><Link href={getLink(`/${schoolSlug}/about/history`)} className="hover:text-school-gold transition-colors">History</Link></li>
               <li><Link href={getLink(`/${schoolSlug}/about/leadership`)} className="hover:text-school-gold transition-colors">Leadership</Link></li>
-              <li><Link href={getLink(`/${schoolSlug}/about/staff`)} className="hover:text-school-gold transition-colors">Staff</Link></li>
               <li><Link href={getLink(`/${schoolSlug}/academics/curriculum`)} className="hover:text-school-gold transition-colors">Curriculum</Link></li>
               <li><Link href={getLink(`/${schoolSlug}/academics/results`)} className="hover:text-school-gold transition-colors">Results</Link></li>
               <li><Link href={getLink(`/${schoolSlug}/admissions/apply`)} className="hover:text-school-gold transition-colors">Apply</Link></li>

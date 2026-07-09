@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import { ChevronRight, Home, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { schoolsData, SchoolSlug } from "@/lib/schools-data";
@@ -18,10 +18,10 @@ interface PageHeaderProps {
 }
 
 export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderProps) {
-  const pathname = usePathname();
+  const params = useParams();
   
   // Extract active school slug
-  const schoolSlug = (pathname.split("/")[1] || "high-school") as SchoolSlug;
+  const schoolSlug = (params?.school || "high-school") as SchoolSlug;
   const schoolInfo = schoolsData[schoolSlug] || schoolsData["high-school"];
 
   return (

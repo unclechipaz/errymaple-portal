@@ -5,13 +5,16 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const hostname = request.headers.get("host") || "";
 
-  // Determine subdomain based on hostname prefix
+  // Determine subdomain based on hostname prefix or custom domain
   let schoolSlug = "";
   if (hostname.startsWith("high.")) {
     schoolSlug = "high-school";
   } else if (hostname.startsWith("junior.")) {
     schoolSlug = "junior-school";
-  } else if (hostname.startsWith("international.")) {
+  } else if (
+    hostname.startsWith("international.") || 
+    hostname.includes("errymapleinternational.ac.zw")
+  ) {
     schoolSlug = "international-school";
   }
 
