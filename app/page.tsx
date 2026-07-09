@@ -200,15 +200,25 @@ export default function Home() {
     },
 
     {
-      title: "National Robotics Champions",
-      desc: "Our high school STEM robotics squad takes first place in the national engineering olympiad, qualifying for global finals.",
-      date: "May 28, 2026",
-      img: "/images/news_robotics.png",
+      title: "Gold at Zimbabwe Science Fair 2026",
+      desc: "Errymaple Junior School is celebrating a historic achievement after Grade Seven learner Joseph Chekenya won a Gold Medal in the Robotics: Statics and Dynamics category.",
+      date: "July 9, 2026",
+      img: "/images/news_joseph.jpg",
       badge: "Innovation",
-      author: "ICT Department",
+      author: "School Administration",
       content: [
-        "Our high school STEM robotics squad took first place in the national engineering olympiad, qualifying for the global finals.",
-        "The team designed, assembled, and programmed a smart search-and-rescue vehicle using microcontrollers and custom coding scripts. This milestone highlights our emphasis on technology, innovation, and practical problem-solving in preparation for future careers."
+        "Errymaple Junior School is celebrating a historic achievement after Grade Seven learner Joseph Chekenya won a Gold Medal in the Robotics: Statics and Dynamics category at the Zimbabwe Science Fair 2026, held at Gateway High School in Harare.",
+        "Joseph emerged as the top performer in the junior category after designing an innovative automated underground mining vehicle prototype. His project demonstrated creativity, technical skill and the practical application of robotics to real-world challenges in Zimbabwe’s mining sector.",
+        "The Zimbabwe Science Fair brought together talented young innovators from across the country, showcasing projects in science, technology, engineering and innovation. Joseph’s outstanding performance placed Errymaple Junior School among the leading schools nurturing young talent in robotics and practical problem-solving.",
+        "Speaking after the competition, Joseph described the experience as an important learning opportunity.",
+        "“It was a big competition for me, and I learnt a lot. It is good that we are groomed from this stage until we become professionals. I saw some designs at the competition, and I think I can develop them into big things. This is good for us as it enhances our skills and knowledge,” he said.",
+        "The achievement reflects Errymaple Junior School’s commitment to innovation, practical learning, critical thinking and technology-driven education. It also aligns with Zimbabwe’s Heritage-Based Education Framework, which emphasises the development of relevant knowledge, skills and competencies among learners.",
+        "Errymaple Group of Schools Robotics Instructor, Mr Adriot Tsaura, highlighted the importance of introducing learners to robotics and emerging technologies from an early age.",
+        "“This is a good initiative for Zimbabwe’s education sector, as well as its technology field. It is a testament to Zimbabwe’s commitment to capacitating and equipping teachers with future-ready skills. By integrating robotics into the education system, we are preparing youths for global opportunities in technology and innovation,” he said.",
+        "Robotics plays an important role in developing problem-solving skills, critical thinking, analysis and creativity while preparing learners for future careers in engineering, automation, artificial intelligence and other technology-driven fields.",
+        "Joseph’s gold medal marks a proud milestone for Errymaple Junior School and demonstrates the school’s continued commitment to nurturing the next generation of innovators, creators and problem-solvers.",
+        "Congratulations to Joseph Chekenya on this outstanding achievement!",
+        "Errymaple Junior School — Dreamers, Believers and Achievers. Top of the Best."
       ]
     },
     {
