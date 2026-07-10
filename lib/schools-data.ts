@@ -350,7 +350,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     accentText: "text-red-600",
     accentBorder: "border-red-500/30",
     accentDot: "bg-red-600",
-    btnTheme: "bg-red-600 text-white hover:bg-red-700",
+    btnTheme: "bg-[#1877F2] text-white hover:bg-[#1565C0]",
     primaryColorHex: "#7F1D1D",
     accentColorHex: "#C5A059",
     email: "errymaple@live.com",
