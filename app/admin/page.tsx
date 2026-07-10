@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { 
   Users, Calendar, FileText, Mail, ArrowLeft, Search, 
   Download, RefreshCw, CheckCircle2, ShieldAlert, 
-  Info, ExternalLink, School, Lock, User, LogOut
+  Info, ExternalLink, School, Lock, User, LogOut, Globe
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -16,7 +16,7 @@ export default function AdminDashboard() {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
 
-  const [activeTab, setActiveTab] = useState<"quick" | "registration" | "contact">("quick");
+  const [activeTab, setActiveTab] = useState<"quick" | "registration" | "international" | "contact">("quick");
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -84,7 +84,9 @@ export default function AdminDashboard() {
       activeTab === "quick" 
         ? data.quickAdmissions 
         : activeTab === "registration"
-        ? data.highSchoolRegistrations
+        ? data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || item.data.schoolSlug === "junior-school" || !item.data.schoolSlug)
+        : activeTab === "international"
+        ? data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "international-school")
         : data.contactInquiries;
 
     if (!searchQuery.trim()) return list;
@@ -292,11 +294,12 @@ export default function AdminDashboard() {
             </div>
 
             {/* Stats Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
               {[
                 { label: "Total Applications", value: totalCount, desc: "Combined queries", icon: Users, color: "border-slate-800 text-slate-350" },
                 { label: "Quick Admissions", value: data.quickAdmissions.length, desc: "From landing page modal", icon: Calendar, color: "border-slate-800 text-school-gold" },
-                { label: "High School Regs", value: data.highSchoolRegistrations.length, desc: "Full online applications", icon: FileText, color: "border-slate-800 text-school-gold" },
+                { label: "High School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || item.data.schoolSlug === "junior-school" || !item.data.schoolSlug).length, desc: "Full online applications", icon: FileText, color: "border-slate-800 text-school-gold" },
+                { label: "International Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "international-school").length, desc: "Cambridge admissions", icon: Globe, color: "border-slate-800 text-school-gold" },
                 { label: "Contact Inquiries", value: data.contactInquiries.length, desc: "Messages & requests", icon: Mail, color: "border-slate-800 text-slate-355" },
               ].map((stat, idx) => {
                 const Icon = stat.icon;
@@ -319,10 +322,11 @@ export default function AdminDashboard() {
 
             {/* Search & Tabs Controls */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-4">
-              <div className="flex bg-slate-950/80 p-1.5 rounded-2xl border border-slate-800 w-fit">
+              <div className="flex flex-wrap bg-slate-950/80 p-1.5 rounded-2xl border border-slate-800 w-fit gap-1">
                 {[
                   { id: "quick", label: "Quick Admissions" },
                   { id: "registration", label: "HS Registrations" },
+                  { id: "international", label: "International Regs" },
                   { id: "contact", label: "Contact Inquiries" }
                 ].map(tab => (
                   <button
@@ -418,7 +422,7 @@ export default function AdminDashboard() {
                               </>
                             )}
 
-                            {activeTab === "registration" && (
+                            {(activeTab === "registration" || activeTab === "international") && (
                               <>
                                 <td className="py-5 px-6 align-top">
                                   <div className="space-y-1">
