@@ -59,6 +59,12 @@ export interface SchoolData {
   downloads: { name: string; size: string; type: string; link?: string }[];
   calendar: { event: string; date: string; type: string }[];
   testimonials: { quote: string; author: string; role: string }[];
+  landingImages?: {
+    classroom: string;
+    sports: string;
+    stem: string;
+    leadership: string;
+  };
 }
 
 export const schoolsData: Record<SchoolSlug, SchoolData> = {
@@ -214,7 +220,13 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { quote: "Sending our son to Errymaple High School was the best investment we made. The dual-track combination of ZIMSEC and HEXCO computer servicing gave him both university eligibility and practical IT engineering credentials.", author: "Mrs. Sarah Sibanda", role: "Parent of 2025 Graduate" },
       { quote: "The robotics labs and coding tracks at Errymaple inspired me to pursue Software Engineering. Winning the national robotics Olympiad was a highlight of my school years, and the leadership mentors taught me how to manage team projects.", author: "Kudzai Chanda", role: "Alumni (Class of 2024, now at NUST)" },
       { quote: "Boarding at Errymaple taught me discipline, independent organization, and collaborative respect. The environment is supportive, and the teachers guide us to achieve top academic standards while exploring sports like golf.", author: "Tinashe Mandeya", role: "Current Form 6 Student & Head Boy" }
-    ]
+    ],
+    landingImages: {
+      classroom: "/images/classrooms_gallery.png",
+      sports: "/images/golf_gallery.png",
+      stem: "/images/robotics_gallery.png",
+      leadership: "/images/leadership_gallery.png"
+    }
   },
   "junior-school": {
     name: "Errymaple Junior School",
@@ -335,7 +347,13 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     testimonials: [
       { quote: "Our daughter loves Errymaple Junior School. The teachers are so gentle and parent communication is always fast. She has learned basic computer mouse skills and simple coding while excelling in reading.", author: "Mrs. Chipo Moyo", role: "Parent of ECD B Student" },
       { quote: "Being Head Boy at Errymaple Junior taught me to lead by example and support my fellow primary students. The classrooms are clean and colorful, and the library has the best adventure books.", author: "Shawn Mpofu", role: "Grade 7 Head Boy (Class of 2025)" }
-    ]
+    ],
+    landingImages: {
+      classroom: "/images/classrooms_gallery.png",
+      sports: "/images/golf_gallery.png",
+      stem: "/images/robotics_gallery.png",
+      leadership: "/images/leadership_gallery.png"
+    }
   },
   "international-school": {
     name: "Errymaple International School",
@@ -465,6 +483,12 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     testimonials: [
       { quote: "The Cambridge track combined with French immersion at Errymaple International School is outstanding. My son transitioned seamlessly to study engineering in Canada.", author: "Dr. David Jenkins", role: "Dean of Admissions Liaison" },
       { quote: "Participating in MUN and Toastmasters gavels gave me the confidence to present my research projects. Receiving Cambridge Learner awards was the highlight of my A-Levels.", author: "Amina Gumbo", role: "Alumni (Class of 2024, now at Oxford)" }
-    ]
+    ],
+    landingImages: {
+      classroom: "/images/classrooms_international.jpg",
+      sports: "/images/sports_international.jpg",
+      stem: "/images/stem_international.jpg",
+      leadership: "/images/leadership_international.jpg"
+    }
   }
 };

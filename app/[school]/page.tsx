@@ -113,13 +113,13 @@ export default function SchoolHome({ params }: PageProps) {
 
             <div className="space-y-4">
               <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-900 border border-slate-200/50 dark:border-white/5 shadow-2xl relative group">
-                <img src="/images/classrooms_gallery.png" alt="Classrooms" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={schoolInfo.landingImages?.classroom || "/images/classrooms_gallery.png"} alt="Classrooms" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute bottom-4 left-4 text-slate-900 dark:text-white font-serif font-bold text-xs bg-white/95 dark:bg-slate-950/90 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-white/5 shadow-md backdrop-blur-sm">
                   Classroom Excellence
                 </div>
               </div>
               <div className="rounded-2xl overflow-hidden aspect-square bg-slate-100 dark:bg-slate-900 border border-slate-200/50 dark:border-white/5 shadow-2xl relative group">
-                <img src="/images/robotics_gallery.png" alt="Robotics" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={schoolInfo.landingImages?.stem || "/images/robotics_gallery.png"} alt="Robotics" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute bottom-4 left-4 text-slate-900 dark:text-white font-serif font-bold text-xs bg-white/95 dark:bg-slate-950/90 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-white/5 shadow-md backdrop-blur-sm">
                   STEM & Innovation
                 </div>
@@ -128,13 +128,13 @@ export default function SchoolHome({ params }: PageProps) {
             
             <div className="space-y-4 pt-8">
               <div className="rounded-2xl overflow-hidden aspect-square bg-slate-100 dark:bg-slate-900 border border-slate-200/50 dark:border-white/5 shadow-2xl relative group">
-                <img src="/images/golf_gallery.png" alt="Sports" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={schoolInfo.landingImages?.sports || "/images/golf_gallery.png"} alt="Sports" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute bottom-4 left-4 text-slate-900 dark:text-white font-serif font-bold text-xs bg-white/95 dark:bg-slate-950/90 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-white/5 shadow-md backdrop-blur-sm">
                   Sports Academy
                 </div>
               </div>
               <div className="rounded-2xl overflow-hidden aspect-[4/5] bg-slate-100 dark:bg-slate-900 border border-slate-200/50 dark:border-white/5 shadow-2xl relative group">
-                <img src="/images/leadership_gallery.png" alt="Leadership" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={schoolInfo.landingImages?.leadership || "/images/leadership_gallery.png"} alt="Leadership" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute bottom-4 left-4 text-slate-900 dark:text-white font-serif font-bold text-xs bg-white/95 dark:bg-slate-950/90 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-white/5 shadow-md backdrop-blur-sm">
                   Leadership Development
                 </div>
