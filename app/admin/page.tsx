@@ -277,17 +277,6 @@ export default function AdminDashboard() {
               </div>
             </div>
 
-            {/* Info Alert Box */}
-            <div className="bg-blue-50 border border-blue-100 p-4 rounded-2xl flex items-start gap-3.5 text-blue-800">
-              <Info className="h-5 w-5 shrink-0 mt-0.5" />
-              <div className="text-xs sm:text-sm leading-relaxed">
-                <p className="font-bold text-slate-900 mb-0.5">Database Source File</p>
-                <p>
-                  These records are pulled from the local file <code className="bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded text-slate-800">submissions.json</code> in your project root. Every time a visitor submits a form on the website, it logs here in real-time. In a production environment, this dashboard would be password-protected and connected to an online SQL/NoSQL database or email SMTP servers.
-                </p>
-              </div>
-            </div>
-
             {/* Stats Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
               {[
