@@ -35,6 +35,9 @@ export default function Home() {
       if (schoolSlug === "international-school") {
         return "https://errymapleinternational.ac.zw";
       }
+      if (schoolSlug === "junior-school") {
+        return "/junior";
+      }
       return `https://${prefix}.errymaplegroup.ac.zw`;
     }
     return href;

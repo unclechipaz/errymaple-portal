@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { ChevronRight, Home, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { schoolsData, SchoolSlug } from "@/lib/schools-data";
@@ -19,10 +19,18 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderProps) {
   const params = useParams();
+  const pathname = usePathname();
   
   // Extract active school slug
   const schoolSlug = (params?.school || "high-school") as SchoolSlug;
   const schoolInfo = schoolsData[schoolSlug] || schoolsData["high-school"];
+
+  const getHomeLink = () => {
+    if (schoolSlug === "junior-school" && pathname.startsWith("/junior")) {
+      return "/junior";
+    }
+    return `/${schoolSlug}`;
+  };
 
   return (
     <section className="relative min-h-[30vh] flex items-center justify-center bg-slate-50 dark:bg-slate-950 border-b border-slate-200/60 dark:border-slate-800/60 overflow-hidden pt-28 pb-12">
@@ -64,7 +72,7 @@ export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderP
           aria-label="Breadcrumb"
         >
           <Link
-            href={`/${schoolSlug}`}
+            href={getHomeLink()}
             className="flex items-center space-x-1 hover:text-school-gold transition-colors text-slate-600 dark:text-slate-350"
           >
             <Home className="h-4 w-4" />

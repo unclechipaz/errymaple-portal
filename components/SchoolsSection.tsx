@@ -16,7 +16,7 @@ export default function SchoolsSection() {
         if (href === "/international-school") return "http://international.localhost:3000";
       } else {
         if (href === "/high-school") return "https://high.errymaplegroup.ac.zw";
-        if (href === "/junior-school") return "https://junior.errymaplegroup.ac.zw";
+        if (href === "/junior-school") return "/junior";
         if (href === "/international-school") return "https://errymapleinternational.ac.zw";
       }
     }

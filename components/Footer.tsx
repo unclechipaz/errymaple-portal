@@ -59,7 +59,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-slate-400">
               <li>
                 <a
-                  href="https://high.errymapletrustschool.ac.zw"
+                  href="https://high.errymaplegroup.ac.zw"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-school-gold flex items-center gap-1.5 transition-colors group"
@@ -69,19 +69,17 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a
-                  href="https://junior.errymapletrustschool.ac.zw"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/junior"
                   className="hover:text-school-gold flex items-center gap-1.5 transition-colors group"
                 >
                   <span>Errymaple Junior School</span>
                   <ExternalLink className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                </a>
+                </Link>
               </li>
               <li>
                 <a
-                  href="https://international.errymapletrustschool.ac.zw"
+                  href="https://errymapleinternational.ac.zw"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-school-gold flex items-center gap-1.5 transition-colors group"

@@ -5,6 +5,16 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const hostname = request.headers.get("host") || "";
 
+  // Rewrite /junior and /junior/* paths internally to /junior-school
+  if (url.pathname === "/junior") {
+    url.pathname = "/junior-school";
+    return NextResponse.rewrite(url);
+  }
+  if (url.pathname.startsWith("/junior/")) {
+    url.pathname = url.pathname.replace("/junior/", "/junior-school/");
+    return NextResponse.rewrite(url);
+  }
+
   // Determine subdomain based on hostname prefix or custom domain
   let schoolSlug = "";
   if (hostname.startsWith("high.")) {

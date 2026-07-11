@@ -22,8 +22,12 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
   const schoolSlug = propSchoolSlug || (pathname.split("/")[1] || "high-school") as SchoolSlug;
   const schoolInfo = schoolsData[schoolSlug] || schoolsData["high-school"];
 
-  const hasPrefix = pathname.startsWith(`/${schoolSlug}`);
+  const isJuniorPath = schoolSlug === "junior-school" && pathname.startsWith("/junior");
+  const hasPrefix = pathname.startsWith(`/${schoolSlug}`) || isJuniorPath;
   const getLink = (href: string) => {
+    if (isJuniorPath) {
+      return href.replace("/junior-school", "/junior");
+    }
     if (hasPrefix) {
       return href;
     }
