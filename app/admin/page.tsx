@@ -16,7 +16,7 @@ export default function AdminDashboard() {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
 
-  const [activeTab, setActiveTab] = useState<"quick" | "registration" | "international" | "contact">("quick");
+  const [activeTab, setActiveTab] = useState<"quick" | "registration" | "junior" | "international" | "contact">("quick");
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -84,7 +84,9 @@ export default function AdminDashboard() {
       activeTab === "quick" 
         ? data.quickAdmissions 
         : activeTab === "registration"
-        ? data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || item.data.schoolSlug === "junior-school" || !item.data.schoolSlug)
+        ? data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || !item.data.schoolSlug)
+        : activeTab === "junior"
+        ? data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "junior-school")
         : activeTab === "international"
         ? data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "international-school")
         : data.contactInquiries;
@@ -294,11 +296,12 @@ export default function AdminDashboard() {
             </div>
 
             {/* Stats Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
               {[
                 { label: "Total Applications", value: totalCount, desc: "Combined queries", icon: Users, color: "border-slate-800 text-slate-350" },
                 { label: "Quick Admissions", value: data.quickAdmissions.length, desc: "From landing page modal", icon: Calendar, color: "border-slate-800 text-school-gold" },
-                { label: "High School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || item.data.schoolSlug === "junior-school" || !item.data.schoolSlug).length, desc: "Full online applications", icon: FileText, color: "border-slate-800 text-school-gold" },
+                { label: "High School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || !item.data.schoolSlug).length, desc: "Form 1 - Form 6 applications", icon: FileText, color: "border-slate-800 text-school-gold" },
+                { label: "Junior School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "junior-school").length, desc: "ECD A - Grade 7 applications", icon: School, color: "border-slate-800 text-school-gold" },
                 { label: "International Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "international-school").length, desc: "Cambridge admissions", icon: Globe, color: "border-slate-800 text-school-gold" },
                 { label: "Contact Inquiries", value: data.contactInquiries.length, desc: "Messages & requests", icon: Mail, color: "border-slate-800 text-slate-355" },
               ].map((stat, idx) => {
@@ -326,6 +329,7 @@ export default function AdminDashboard() {
                 {[
                   { id: "quick", label: "Quick Admissions" },
                   { id: "registration", label: "HS Registrations" },
+                  { id: "junior", label: "Junior Regs" },
                   { id: "international", label: "International Regs" },
                   { id: "contact", label: "Contact Inquiries" }
                 ].map(tab => (
@@ -422,7 +426,7 @@ export default function AdminDashboard() {
                               </>
                             )}
 
-                            {(activeTab === "registration" || activeTab === "international") && (
+                            {(activeTab === "registration" || activeTab === "junior" || activeTab === "international") && (
                               <>
                                 <td className="py-5 px-6 align-top">
                                   <div className="space-y-1">
