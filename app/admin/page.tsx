@@ -147,9 +147,9 @@ export default function AdminDashboard() {
   const totalCount = data.quickAdmissions.length + data.highSchoolRegistrations.length + data.contactInquiries.length;
 
   return (
-    <div className="min-h-screen bg-slate-900 text-slate-100 font-sans p-6 sm:p-12 relative overflow-hidden flex items-center justify-center">
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-6 sm:p-12 relative overflow-hidden flex items-center justify-center">
       {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-school-gold/5 rounded-full blur-3xl pointer-events-none" />
 
       <AnimatePresence mode="wait">
@@ -160,16 +160,16 @@ export default function AdminDashboard() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -30 }}
-            className="w-full max-w-md bg-slate-950/80 border border-slate-800 p-8 rounded-[36px] shadow-2xl relative z-10 space-y-6"
+            className="w-full max-w-md bg-white border border-slate-105 p-8 rounded-[36px] shadow-2xl relative z-10 space-y-6"
           >
             {/* Logo Badge */}
             <div className="flex flex-col items-center text-center space-y-2">
-              <div className="bg-slate-900 p-3 rounded-full border border-school-gold/20 shadow-md">
+              <div className="bg-slate-50 p-3 rounded-full border border-slate-200 shadow-sm">
                 <img src="/images/egs_logo.jpg" alt="Errymaple Seal" className="h-16 w-16 object-contain rounded-full" />
               </div>
-              <h2 className="text-xl font-bold uppercase tracking-widest text-school-gold">Errymaple Group</h2>
-              <h3 className="text-2xl font-bold font-serif text-white">Administrator Access</h3>
-              <p className="text-slate-400 text-xs max-w-xs">Enter credentials below to view admissions database.</p>
+              <h2 className="text-xl font-bold uppercase tracking-widest text-school-blue">Errymaple Group</h2>
+              <h3 className="text-2xl font-bold font-serif text-slate-900">Administrator Access</h3>
+              <p className="text-slate-500 text-xs max-w-xs">Enter credentials below to view admissions database.</p>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-4">
@@ -178,7 +178,7 @@ export default function AdminDashboard() {
                   initial={{ x: 0 }}
                   animate={{ x: [0, -10, 10, -10, 10, 0] }}
                   transition={{ duration: 0.4 }}
-                  className="bg-rose-950/40 border border-rose-900/40 text-rose-350 p-3 rounded-xl text-xs flex items-center gap-2"
+                  className="bg-rose-50 border border-rose-100 text-rose-600 p-3 rounded-xl text-xs flex items-center gap-2"
                 >
                   <ShieldAlert className="h-4 w-4 shrink-0" />
                   <span>Invalid username or password credentials.</span>
@@ -186,31 +186,31 @@ export default function AdminDashboard() {
               )}
 
               <div className="space-y-1">
-                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Username</label>
+                <label className="block text-[10px] font-bold text-slate-550 uppercase tracking-wider">Username</label>
                 <div className="relative">
-                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                  <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <input 
                     type="text" 
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
                     placeholder="admin"
-                    className="w-full bg-slate-900/80 border border-slate-800 px-10 py-3 rounded-xl text-sm outline-none focus:border-school-gold text-white placeholder-slate-650"
+                    className="w-full bg-slate-50 border border-slate-200 px-10 py-3 rounded-xl text-sm outline-none focus:border-school-blue focus:ring-1 focus:ring-school-blue text-slate-900 placeholder-slate-400"
                   />
                 </div>
               </div>
 
               <div className="space-y-1">
-                <label className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Password</label>
+                <label className="block text-[10px] font-bold text-slate-550 uppercase tracking-wider">Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                  <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                   <input 
                     type="password" 
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     placeholder="••••••••"
-                    className="w-full bg-slate-900/80 border border-slate-800 px-10 py-3 rounded-xl text-sm outline-none focus:border-school-gold text-white"
+                    className="w-full bg-slate-50 border border-slate-200 px-10 py-3 rounded-xl text-sm outline-none focus:border-school-blue focus:ring-1 focus:ring-school-blue text-slate-900"
                   />
                 </div>
               </div>
@@ -221,10 +221,10 @@ export default function AdminDashboard() {
             </form>
 
             {/* Helper credentials banner for testing */}
-            <div className="bg-slate-900/50 border border-slate-850 p-3.5 rounded-xl text-[11px] text-slate-500 space-y-1 text-center">
-              <span className="font-bold text-slate-400 block uppercase tracking-wider">Demo Credentials</span>
-              <p>Username: <code className="bg-slate-950 px-1 py-0.5 rounded text-school-gold">admin</code></p>
-              <p>Password: <code className="bg-slate-950 px-1 py-0.5 rounded text-school-gold">Admin@Errymaple2026</code></p>
+            <div className="bg-slate-50 border border-slate-100 p-3.5 rounded-xl text-[11px] text-slate-550 space-y-1 text-center">
+              <span className="font-bold text-slate-500 block uppercase tracking-wider">Demo Credentials</span>
+              <p>Username: <code className="bg-white px-1.5 py-0.5 rounded border border-slate-150 text-slate-700">admin</code></p>
+              <p>Password: <code className="bg-white px-1.5 py-0.5 rounded border border-slate-150 text-slate-700">Admin@Errymaple2026</code></p>
             </div>
           </motion.div>
         ) : (
@@ -237,20 +237,20 @@ export default function AdminDashboard() {
             className="w-full max-w-7xl space-y-8 relative z-10 align-top self-start"
           >
             {/* Navigation & Header */}
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-slate-800">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pb-6 border-b border-slate-200">
               <div className="space-y-2">
                 <Link 
                   href="/" 
-                  className="inline-flex items-center gap-2 text-xs font-bold text-school-gold hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 text-xs font-bold text-school-blue hover:text-slate-900 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4" />
                   <span>Back to Portal Home</span>
                 </Link>
-                <h1 className="text-3xl sm:text-4xl font-bold font-serif text-white flex items-center gap-3">
-                  <School className="h-9 w-9 text-school-gold" />
+                <h1 className="text-3xl sm:text-4xl font-bold font-serif text-slate-900 flex items-center gap-3">
+                  <School className="h-9 w-9 text-school-blue" />
                   Admissions & Inquiries Dashboard
                 </h1>
-                <p className="text-slate-400 text-sm">
+                <p className="text-slate-500 text-sm">
                   Manage and export student applications from the Errymaple Group of Schools portal.
                 </p>
               </div>
@@ -260,7 +260,7 @@ export default function AdminDashboard() {
                   variant="outline" 
                   onClick={fetchSubmissions} 
                   disabled={loading}
-                  className="border-slate-700 text-slate-300 hover:bg-slate-800 hover:text-white flex items-center gap-2"
+                  className="border-slate-300 text-slate-700 hover:bg-slate-100 hover:text-slate-900 flex items-center gap-2"
                 >
                   <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
                   <span>Refresh</span>
@@ -276,7 +276,7 @@ export default function AdminDashboard() {
                 </Button>
                 <Button 
                   onClick={handleLogout}
-                  className="bg-red-600 hover:bg-red-700 text-white font-bold flex items-center gap-2"
+                  className="bg-red-650 hover:bg-red-750 text-white font-bold flex items-center gap-2"
                 >
                   <LogOut className="h-4 w-4" />
                   <span className="hidden sm:inline">Logout</span>
@@ -285,12 +285,12 @@ export default function AdminDashboard() {
             </div>
 
             {/* Info Alert Box */}
-            <div className="bg-blue-950/40 border border-blue-800/40 p-4 rounded-2xl flex items-start gap-3.5 text-blue-300">
+            <div className="bg-blue-50 border border-blue-100 p-4 rounded-2xl flex items-start gap-3.5 text-blue-800">
               <Info className="h-5 w-5 shrink-0 mt-0.5" />
               <div className="text-xs sm:text-sm leading-relaxed">
-                <p className="font-bold text-white mb-0.5">Database Source File</p>
+                <p className="font-bold text-slate-900 mb-0.5">Database Source File</p>
                 <p>
-                  These records are pulled from the local file <code className="bg-slate-950 px-1.5 py-0.5 rounded text-school-gold">submissions.json</code> in your project root. Every time a visitor submits a form on the website, it logs here in real-time. In a production environment, this dashboard would be password-protected and connected to an online SQL/NoSQL database or email SMTP servers.
+                  These records are pulled from the local file <code className="bg-slate-100 border border-slate-200 px-1.5 py-0.5 rounded text-slate-800">submissions.json</code> in your project root. Every time a visitor submits a form on the website, it logs here in real-time. In a production environment, this dashboard would be password-protected and connected to an online SQL/NoSQL database or email SMTP servers.
                 </p>
               </div>
             </div>
@@ -298,24 +298,24 @@ export default function AdminDashboard() {
             {/* Stats Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
               {[
-                { label: "Total Applications", value: totalCount, desc: "Combined queries", icon: Users, color: "border-slate-800 text-slate-350" },
-                { label: "Quick Admissions", value: data.quickAdmissions.length, desc: "From landing page modal", icon: Calendar, color: "border-slate-800 text-school-gold" },
-                { label: "High School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || !item.data.schoolSlug).length, desc: "Form 1 - Form 6 applications", icon: FileText, color: "border-slate-800 text-school-gold" },
-                { label: "Junior School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "junior-school").length, desc: "ECD A - Grade 7 applications", icon: School, color: "border-slate-800 text-school-gold" },
-                { label: "International Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "international-school").length, desc: "Cambridge admissions", icon: Globe, color: "border-slate-800 text-school-gold" },
-                { label: "Contact Inquiries", value: data.contactInquiries.length, desc: "Messages & requests", icon: Mail, color: "border-slate-800 text-slate-355" },
+                { label: "Total Applications", value: totalCount, desc: "Combined queries", icon: Users, color: "border-slate-200 text-slate-800" },
+                { label: "Quick Admissions", value: data.quickAdmissions.length, desc: "From landing page modal", icon: Calendar, color: "border-slate-200 text-school-blue" },
+                { label: "High School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || !item.data.schoolSlug).length, desc: "Form 1 - Form 6 applications", icon: FileText, color: "border-slate-200 text-school-blue" },
+                { label: "Junior School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "junior-school").length, desc: "ECD A - Grade 7 applications", icon: School, color: "border-slate-200 text-school-blue" },
+                { label: "International Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "international-school").length, desc: "Cambridge admissions", icon: Globe, color: "border-slate-200 text-school-blue" },
+                { label: "Contact Inquiries", value: data.contactInquiries.length, desc: "Messages & requests", icon: Mail, color: "border-slate-200 text-slate-500" },
               ].map((stat, idx) => {
                 const Icon = stat.icon;
                 return (
-                  <div key={idx} className={`bg-slate-950/60 border ${stat.color} p-6 rounded-3xl shadow-xl space-y-4`}>
+                  <div key={idx} className="bg-white border border-slate-200/80 p-6 rounded-3xl shadow-sm space-y-4">
                     <div className="flex justify-between items-center">
-                      <span className="text-xs font-bold uppercase tracking-wider text-slate-400">{stat.label}</span>
-                      <div className="bg-slate-900 p-2 rounded-xl text-school-gold">
+                      <span className="text-xs font-bold uppercase tracking-wider text-slate-500">{stat.label}</span>
+                      <div className="bg-slate-50 p-2 rounded-xl text-school-blue border border-slate-100">
                         <Icon className="h-5 w-5" />
                       </div>
                     </div>
                     <div className="space-y-1">
-                      <p className="text-3xl font-extrabold text-white">{stat.value}</p>
+                      <p className="text-3xl font-extrabold text-slate-950">{stat.value}</p>
                       <p className="text-[11px] text-slate-500">{stat.desc}</p>
                     </div>
                   </div>
@@ -325,7 +325,7 @@ export default function AdminDashboard() {
 
             {/* Search & Tabs Controls */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-4">
-              <div className="flex flex-wrap bg-slate-950/80 p-1.5 rounded-2xl border border-slate-800 w-fit gap-1">
+              <div className="flex flex-wrap bg-slate-100 p-1.5 rounded-2xl border border-slate-200 w-fit gap-1">
                 {[
                   { id: "quick", label: "Quick Admissions" },
                   { id: "registration", label: "HS Registrations" },
@@ -341,8 +341,8 @@ export default function AdminDashboard() {
                     }}
                     className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 ${
                       activeTab === tab.id
-                        ? "bg-slate-800 text-white shadow-lg"
-                        : "text-slate-400 hover:text-white"
+                        ? "bg-white text-slate-900 shadow-md border border-slate-200/60"
+                        : "text-slate-500 hover:text-slate-800"
                     }`}
                   >
                     {tab.label}
@@ -351,37 +351,36 @@ export default function AdminDashboard() {
               </div>
 
               <div className="relative max-w-sm w-full">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-500" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <input
                   type="text"
                   placeholder="Search by name, email, phone..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full bg-slate-950/80 border border-slate-850 px-10 py-2.5 rounded-2xl text-sm outline-none focus:border-school-gold text-white placeholder-slate-500"
+                  className="w-full bg-white border border-slate-200 px-10 py-2.5 rounded-2xl text-sm outline-none focus:border-school-blue focus:ring-1 focus:ring-school-blue text-slate-900 placeholder-slate-400"
                 />
               </div>
             </div>
 
-            {/* Submissions Table / View */}
-            <div className="bg-slate-950/40 border border-slate-850 rounded-[32px] overflow-hidden shadow-2xl">
+            <div className="bg-white border border-slate-200 rounded-[32px] overflow-hidden shadow-md">
               {loading ? (
                 <div className="py-24 text-center space-y-4">
-                  <RefreshCw className="h-8 w-8 text-school-gold animate-spin mx-auto" />
-                  <p className="text-slate-400 text-sm">Loading submissions...</p>
+                  <RefreshCw className="h-8 w-8 text-school-blue animate-spin mx-auto" />
+                  <p className="text-slate-500 text-sm">Loading submissions...</p>
                 </div>
               ) : error ? (
-                <div className="py-24 text-center space-y-4 text-rose-400">
+                <div className="py-24 text-center space-y-4 text-rose-600">
                   <ShieldAlert className="h-10 w-10 mx-auto" />
                   <p className="text-sm font-semibold">Error Loading Data: {error}</p>
-                  <Button onClick={fetchSubmissions} variant="outline" className="border-rose-900/40 text-rose-350">
+                  <Button onClick={fetchSubmissions} variant="outline" className="border-rose-200 text-rose-600">
                     Try Again
                   </Button>
                 </div>
               ) : getFilteredData().length === 0 ? (
-                <div className="py-24 text-center space-y-4 text-slate-500">
-                  <CheckCircle2 className="h-10 w-10 mx-auto text-slate-600" />
+                <div className="py-24 text-center space-y-4 text-slate-400">
+                  <CheckCircle2 className="h-10 w-10 mx-auto text-slate-300" />
                   <p className="text-sm">No applications found.</p>
-                  <p className="text-xs text-slate-650 max-w-xs mx-auto">
+                  <p className="text-xs text-slate-500 max-w-xs mx-auto">
                     {searchQuery ? "Try refining your search keyword." : "Submissions will show here once filled out by a visitor."}
                   </p>
                 </div>
@@ -389,39 +388,39 @@ export default function AdminDashboard() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse">
                     <thead>
-                      <tr className="border-b border-slate-850 bg-slate-950/50 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-400">
+                      <tr className="border-b border-slate-200 bg-slate-50/50 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-550">
                         <th className="py-4 px-6">Timestamp</th>
                         <th className="py-4 px-6">Primary Details</th>
                         <th className="py-4 px-6">Curriculum / Choice</th>
                         <th className="py-4 px-6">Submission Details</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-850/50 text-xs sm:text-sm">
+                    <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
                       {getFilteredData().map((item: any) => {
                         const date = new Date(item.timestamp).toLocaleString();
                         return (
-                          <tr key={item.id} className="hover:bg-slate-900/30 transition-colors">
+                          <tr key={item.id} className="hover:bg-slate-50/50 transition-colors">
                             <td className="py-5 px-6 text-slate-500 whitespace-nowrap align-top">
                               {date}
-                              <span className="block text-[10px] text-slate-600 font-mono mt-1">{item.id}</span>
+                              <span className="block text-[10px] text-slate-400 font-mono mt-1">{item.id}</span>
                             </td>
                             
                             {/* Render based on form type */}
                             {activeTab === "quick" && (
                               <>
                                 <td className="py-5 px-6 align-top">
-                                  <p className="font-bold text-white text-base">{item.data.name}</p>
-                                  <span className="block text-slate-400 mt-1">{item.data.email}</span>
+                                  <p className="font-bold text-slate-950 text-base">{item.data.name}</p>
+                                  <span className="block text-slate-600 mt-1">{item.data.email}</span>
                                   <span className="block text-slate-500 text-xs mt-0.5">{item.data.phone}</span>
                                 </td>
                                 <td className="py-5 px-6 align-top">
-                                  <span className="inline-block bg-blue-900/30 text-blue-400 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-blue-800/40">
+                                  <span className="inline-block bg-blue-50 text-blue-700 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border border-blue-100">
                                     {item.data.school}
                                   </span>
-                                  <p className="text-slate-400 text-xs mt-2 font-medium">Target Level: {item.data.grade}</p>
+                                  <p className="text-slate-650 text-xs mt-2 font-medium">Target Level: {item.data.grade}</p>
                                 </td>
-                                <td className="py-5 px-6 align-top max-w-sm text-slate-400 leading-relaxed text-xs">
-                                  {item.data.message || <span className="text-slate-600 italic">No custom questions.</span>}
+                                <td className="py-5 px-6 align-top max-w-sm text-slate-600 leading-relaxed text-xs">
+                                  {item.data.message || <span className="text-slate-400 italic">No custom questions.</span>}
                                 </td>
                               </>
                             )}
@@ -430,39 +429,39 @@ export default function AdminDashboard() {
                               <>
                                 <td className="py-5 px-6 align-top">
                                   <div className="space-y-1">
-                                    <p className="text-[10px] font-bold text-school-gold uppercase tracking-wider">Student</p>
-                                    <p className="font-bold text-white text-base leading-tight">{item.data.studentName}</p>
-                                    <p className="text-slate-550 text-xs">DOB: {item.data.studentDob} | {item.data.studentGender}</p>
+                                    <p className="text-[10px] font-bold text-school-blue uppercase tracking-wider">Student</p>
+                                    <p className="font-bold text-slate-950 text-base leading-tight">{item.data.studentName}</p>
+                                    <p className="text-slate-500 text-xs">DOB: {item.data.studentDob} | {item.data.studentGender}</p>
                                   </div>
-                                  <div className="space-y-1 mt-4 pt-3 border-t border-slate-850/60">
-                                    <p className="text-[10px] font-bold text-blue-400 uppercase tracking-wider">Parent/Guardian</p>
-                                    <p className="font-bold text-slate-200 leading-none">{item.data.parentName}</p>
-                                    <p className="text-slate-400 text-xs">{item.data.parentEmail}</p>
+                                  <div className="space-y-1 mt-4 pt-3 border-t border-slate-100">
+                                    <p className="text-[10px] font-bold text-blue-600 uppercase tracking-wider">Parent/Guardian</p>
+                                    <p className="font-bold text-slate-800 leading-none">{item.data.parentName}</p>
+                                    <p className="text-slate-600 text-xs">{item.data.parentEmail}</p>
                                     <p className="text-slate-500 text-xs">{item.data.parentPhone}</p>
                                   </div>
                                 </td>
                                 <td className="py-5 px-6 align-top space-y-3.5">
                                   <div>
-                                    <span className="inline-block bg-slate-900 text-school-gold text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-school-gold/20">
+                                    <span className="inline-block bg-slate-50 text-slate-800 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full border border-slate-200">
                                       {item.data.targetForm}
                                     </span>
                                   </div>
                                   <div>
-                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Program Track:</span>
-                                    <span className="text-slate-300 text-xs">{item.data.programTrack}</span>
+                                    <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">Program Track:</span>
+                                    <span className="text-slate-700 text-xs">{item.data.programTrack}</span>
                                   </div>
                                   <div>
-                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Status:</span>
-                                    <span className="text-slate-300 text-xs">{item.data.boardingStatus}</span>
+                                    <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">Status:</span>
+                                    <span className="text-slate-700 text-xs">{item.data.boardingStatus}</span>
                                   </div>
                                 </td>
-                                <td className="py-5 px-6 align-top text-xs space-y-3.5 text-slate-400 leading-relaxed max-w-sm">
+                                <td className="py-5 px-6 align-top text-xs space-y-3.5 text-slate-600 leading-relaxed max-w-sm">
                                   <div>
-                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Previous School:</span>
-                                    <span>{item.data.prevSchool || <span className="text-slate-650 italic">None logged</span>}</span>
+                                    <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">Previous School:</span>
+                                    <span>{item.data.prevSchool || <span className="text-slate-400 italic">None logged</span>}</span>
                                   </div>
                                   <div>
-                                    <span className="block text-[10px] text-slate-500 font-bold uppercase tracking-wider">Residential Address:</span>
+                                    <span className="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">Residential Address:</span>
                                     <span>{item.data.parentAddress}</span>
                                   </div>
                                 </td>
@@ -472,13 +471,13 @@ export default function AdminDashboard() {
                             {activeTab === "contact" && (
                               <>
                                 <td className="py-5 px-6 align-top">
-                                  <p className="font-bold text-white text-base leading-tight">{item.data.name}</p>
-                                  <span className="block text-slate-400 mt-1">{item.data.email}</span>
+                                  <p className="font-bold text-slate-950 text-base leading-tight">{item.data.name}</p>
+                                  <span className="block text-slate-600 mt-1">{item.data.email}</span>
                                 </td>
                                 <td className="py-5 px-6 align-top">
-                                  <p className="font-bold text-slate-200">{item.data.subject}</p>
+                                  <p className="font-bold text-slate-800">{item.data.subject}</p>
                                 </td>
-                                <td className="py-5 px-6 align-top max-w-md text-slate-400 leading-relaxed text-xs">
+                                <td className="py-5 px-6 align-top max-w-md text-slate-600 leading-relaxed text-xs">
                                   {item.data.message}
                                 </td>
                               </>
