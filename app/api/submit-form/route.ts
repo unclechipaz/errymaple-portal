@@ -114,7 +114,7 @@ export async function POST(request: Request) {
       submissions.quickAdmissions.push(newSubmission);
     } else if (data.formType === "high_school_registration" || data.formType === "school_admissions_apply") {
       submissions.highSchoolRegistrations.push(newSubmission);
-    } else if (data.formType === "contact_inquiry") {
+    } else if (data.formType === "contact_inquiry" || data.formType === "school_contact_inquiry") {
       submissions.contactInquiries.push(newSubmission);
     } else {
       return NextResponse.json({ success: false, error: "Invalid form type" }, { status: 400 });
