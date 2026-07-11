@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  ArrowUpRight, GraduationCap, Award, Compass, Globe, Sparkles, Cpu, ShieldCheck, 
+  ArrowUpRight, GraduationCap, Award, Compass, Globe, Cpu, ShieldCheck, 
   School, CheckCircle2, Calendar, FileText, MapPin, Phone, Mail, ArrowRight, 
   UserCheck, Users, Trophy, BookOpen, Clock, Activity, Check, X, ShieldAlert, User
 } from "lucide-react";

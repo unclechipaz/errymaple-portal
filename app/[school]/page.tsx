@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { 
   Award, BookOpen, Compass, Cpu, GraduationCap, ShieldCheck, 
-  ArrowRight, Sparkles, BookMarked, UserCheck, MessageSquare, 
+  ArrowRight, BookMarked, UserCheck, MessageSquare, 
   School, Calendar, Trophy, ArrowUpRight, ShieldAlert,
   ChevronLeft, ChevronRight, Star, Heart, CheckCircle2,
   Users, Leaf, Brain, Globe, Laptop, HelpCircle
@@ -61,7 +61,7 @@ export default function SchoolHome({ params }: PageProps) {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center space-x-2 bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 border border-blue-100 dark:border-blue-800/40 px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest"
             >
-              <Sparkles className="h-4 w-4 text-school-gold animate-pulse" />
+              <Award className="h-4 w-4 text-school-gold" />
               <span>{schoolInfo.motto}</span>
             </motion.div>
 

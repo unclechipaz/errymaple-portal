@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { GraduationCap, Award, BookOpen, Brain, Sparkles, CheckCircle } from "lucide-react";
+import { GraduationCap, Award, BookOpen, Brain, CheckCircle } from "lucide-react";
 
 export default function AcademicExcellence() {
   const [activeTab, setActiveTab] = useState("secondary");
@@ -77,8 +77,7 @@ export default function AcademicExcellence() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center space-x-1 bg-school-blue/10 dark:bg-school-blue/20 text-school-blue dark:text-school-blue-light px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
-            <Sparkles className="h-3.5 w-3.5 text-school-gold" />
+          <div className="inline-flex items-center bg-school-blue/10 dark:bg-school-blue/20 text-school-blue dark:text-school-blue-light px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-3">
             <span>Curriculum Pathways</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-serif tracking-tight">

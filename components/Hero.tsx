@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Sparkles, ChevronRight, GraduationCap } from "lucide-react";
+import { ArrowDown, ChevronRight, GraduationCap, Trophy, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   const stats = [
     { label: "Exam Pass Rate", value: "98.7%", icon: GraduationCap },
-    { label: "Robotics Awards", value: "15+", icon: Sparkles },
+    { label: "Robotics Awards", value: "15+", icon: Trophy },
     { label: "Campuses", value: "3", icon: GraduationCap },
   ];
 
@@ -33,7 +33,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="inline-flex items-center space-x-2 bg-school-gold/20 text-school-gold border border-school-gold/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 w-fit"
           >
-            <Sparkles className="h-3.5 w-3.5 animate-pulse" />
+            <Award className="h-3.5 w-3.5" />
             <span>Welcome to Errymaple Group of Schools</span>
           </motion.div>
 

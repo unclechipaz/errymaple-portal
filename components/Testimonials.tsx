@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Quote, Sparkles, Star } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
 export default function Testimonials() {
