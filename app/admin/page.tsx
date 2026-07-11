@@ -219,13 +219,6 @@ export default function AdminDashboard() {
                 Authenticate Securely
               </Button>
             </form>
-
-            {/* Helper credentials banner for testing */}
-            <div className="bg-slate-50 border border-slate-100 p-3.5 rounded-xl text-[11px] text-slate-550 space-y-1 text-center">
-              <span className="font-bold text-slate-500 block uppercase tracking-wider">Demo Credentials</span>
-              <p>Username: <code className="bg-white px-1.5 py-0.5 rounded border border-slate-150 text-slate-700">admin</code></p>
-              <p>Password: <code className="bg-white px-1.5 py-0.5 rounded border border-slate-150 text-slate-700">Admin@Errymaple2026</code></p>
-            </div>
           </motion.div>
         ) : (
           /* DASHBOARD PANEL */
