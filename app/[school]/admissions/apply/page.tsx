@@ -92,9 +92,7 @@ export default function ApplyNow({ params }: PageProps) {
       : schoolSlug === "international-school"
       ? ["Cambridge IGCSE Track", "Cambridge AS/A-Level Track", "Bilingual French Track"]
       : ["ZIMSEC O-Level Track", "ZIMSEC A-Level Track", "HEXCO Computer Servicing", "Bilingual French Track"],
-    boarding: schoolSlug === "junior-school"
-      ? ["Day Scholar", "Afterschool Care"]
-      : ["Boarder", "Day Scholar"]
+    boarding: ["Boarder", "Day Scholar"]
   };
 
   return (
