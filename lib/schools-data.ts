@@ -121,7 +121,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { year: "2011", title: "Errymaple High School Established", desc: "Started as a study group with a vision of providing quality secondary education and nurturing future leaders.", icon: Building },
       { year: "2012", title: "ZIMSEC Examination Centre", desc: "Became a registered ZIMSEC examination centre, enabling students to write national examinations at the school.", icon: Award },
       { year: "2014", title: "Introduction of HEXCO Programmes", desc: "Launched HEXCO vocational education beginning with Computer Operations and Packages (COPS).", icon: Cpu },
-      { year: "2015", title: "Megafest Education Sector Award", desc: "Received the Megafest Award in recognition of excellence in Zimbabwe's education sector.", icon: Award },
+      { year: "2015", title: "Megafest Education Sector Award", desc: "Received the Megafest Education Sector Award in recognition of excellence in Zimbabwe's education sector.", icon: Award },
       { year: "2016", title: "Cambridge Centre Status", desc: "Accredited as an official Cambridge examination centre, expanding access to internationally recognised qualifications.", icon: BookOpen },
       { year: "2018", title: "French Language Introduced", desc: "Added French to the curriculum, promoting multilingual learning and global competitiveness.", icon: Globe },
       { year: "2022", title: "Computer Servicing & Maintenance", desc: "Introduced Computer Servicing and Maintenance to equip learners with practical ICT skills.", icon: Cpu },
