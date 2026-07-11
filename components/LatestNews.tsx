@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Tag, ArrowRight, Trophy, Sparkles, BookOpen } from "lucide-react";
+import { Calendar, Tag, ArrowRight, Trophy, Award, BookOpen } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -20,7 +20,7 @@ export default function LatestNews() {
       desc: "Errymaple Chess Club players triumphed at the national youth trials, bringing home three individual gold medals and securing qualifications for regional tournaments.",
       date: "May 28, 2026",
       cat: "Sports & Allied Arts",
-      icon: Sparkles,
+      icon: Award,
       color: "text-school-blue bg-school-blue/10",
     },
     {

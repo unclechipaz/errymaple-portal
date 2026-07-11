@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BookOpen, Cpu, ShieldCheck, Trophy, Sparkles, CheckCircle2 } from "lucide-react";
+import { BookOpen, Cpu, ShieldCheck, Trophy, CheckCircle2 } from "lucide-react";
 
 const motionFramer = motion;
 
@@ -59,9 +59,8 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center space-x-1 bg-school-gold/10 dark:bg-school-gold/20 text-school-gold px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
+              className="inline-flex items-center bg-school-gold/10 dark:bg-school-gold/20 text-school-gold px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest"
             >
-              <Sparkles className="h-3.5 w-3.5" />
               <span>The Errymaple Advantage</span>
             </motionFramer.div>
 

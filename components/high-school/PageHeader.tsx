@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
-import { ChevronRight, Home, Sparkles } from "lucide-react";
+import { ChevronRight, Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { schoolsData, SchoolSlug } from "@/lib/schools-data";
 
@@ -46,9 +46,8 @@ export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderP
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center space-x-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 border border-blue-100 dark:border-blue-800/40 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest"
+            className="inline-flex items-center bg-blue-50 dark:bg-blue-900/30 text-blue-800 dark:text-blue-400 border border-blue-100 dark:border-blue-800/40 px-3.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest"
           >
-            <Sparkles className="h-3 w-3 text-school-gold" />
             <span>{subtitle}</span>
           </motion.div>
         )}
