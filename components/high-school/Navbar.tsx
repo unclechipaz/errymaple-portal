@@ -35,6 +35,19 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
     return stripped === "" ? "/" : stripped;
   };
 
+  const getBtnTheme = () => {
+    const theme = schoolInfo.btnTheme || "";
+    return theme.split(" ").map(cls => {
+      if (cls.startsWith("bg-") || cls.startsWith("text-") || cls.startsWith("hover:bg-")) {
+        if (cls.startsWith("hover:")) {
+          return `hover:!${cls.slice(6)}`;
+        }
+        return `!${cls}`;
+      }
+      return cls;
+    }).join(" ");
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -124,7 +137,7 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
           : "bg-transparent backdrop-blur-sm py-5 border-b border-slate-200/10 dark:border-white/5"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Logo / Title */}
@@ -141,9 +154,9 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
               </span>
             </div>
           </Link>
-
+ 
           {/* Desktop Navigation */}
-          <div className="hidden xl:flex items-center space-x-0.5 xl:space-x-1">
+          <div className="hidden xl:flex items-center gap-0.5 2xl:gap-1.5">
             {menuItems.map((item) => (
               <div
                 key={item.name}
@@ -153,7 +166,7 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
               >
                 {item.dropdown ? (
                   <button
-                    className={`flex items-center space-x-0.5 px-2 py-1.5 rounded-lg text-xs xl:text-sm font-semibold whitespace-nowrap transition-colors text-slate-700 dark:text-slate-200 hover:text-school-gold`}
+                    className={`flex items-center space-x-0.5 px-1.5 py-1 rounded-lg text-[11px] 2xl:text-[13px] font-semibold whitespace-nowrap transition-colors text-slate-700 dark:text-slate-200 hover:text-school-gold`}
                   >
                     <span>{item.name}</span>
                     <ChevronDown className="h-4 w-4 shrink-0" />
@@ -161,7 +174,7 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
                 ) : (
                   <Link
                     href={getLink(item.href)}
-                    className={`px-2 py-1.5 rounded-lg text-xs xl:text-sm font-semibold whitespace-nowrap transition-colors ${
+                    className={`px-1.5 py-1 rounded-lg text-[11px] 2xl:text-[13px] font-semibold whitespace-nowrap transition-colors ${
                       pathname === getLink(item.href)
                         ? "text-school-gold font-bold"
                         : "text-slate-700 dark:text-slate-200 hover:text-school-gold"
@@ -170,7 +183,7 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
                     {item.name}
                   </Link>
                 )}
-
+ 
                 {/* Dropdown Menu */}
                 {item.dropdown && activeDropdown === item.name && (
                   <div className="absolute left-0 mt-0 w-56 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-2xl p-2 z-50">
@@ -192,9 +205,9 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
               </div>
             ))}
           </div>
-
+ 
           {/* Actions */}
-          <div className="hidden xl:flex items-center space-x-4">
+          <div className="hidden xl:flex items-center space-x-3 shrink-0">
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
@@ -203,9 +216,9 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
             >
               {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </button>
-
+ 
             <Link href={getLink(`/${schoolSlug}/admissions/apply`)}>
-              <Button className={`font-bold whitespace-nowrap ${schoolInfo.btnTheme}`}>
+              <Button className={`font-bold whitespace-nowrap ${getBtnTheme()}`}>
                 Apply Online
               </Button>
             </Link>
@@ -275,7 +288,7 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
 
           <div className="pt-4 px-3">
             <Link href={getLink(`/${schoolSlug}/admissions/apply`)} onClick={() => setIsOpen(false)}>
-              <Button className={`w-full font-bold ${schoolInfo.btnTheme}`}>
+              <Button className={`w-full font-bold ${getBtnTheme()}`}>
                 Apply Online
               </Button>
             </Link>

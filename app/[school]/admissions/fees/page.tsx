@@ -164,10 +164,6 @@ export default function SchoolFees({ params }: PageProps) {
                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
                 <span>Uniform Package: <strong className="text-slate-900 dark:text-white">USD 250</strong></span>
               </div>
-              <div className="flex items-center space-x-2">
-                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>Application Fee: <strong className="text-slate-900 dark:text-white">USD 20</strong></span>
-              </div>
             </div>
 
             <div className="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -278,10 +274,12 @@ export default function SchoolFees({ params }: PageProps) {
               <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
               <span>Uniform Package: <strong className="text-slate-900 dark:text-white">{feeData.uniform}</strong></span>
             </div>
-            <div className="flex items-center space-x-2">
-              <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-              <span>Application Fee: <strong className="text-slate-900 dark:text-white">{feeData.application}</strong></span>
-            </div>
+            {feeData.application && (
+              <div className="flex items-center space-x-2">
+                <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                <span>Application Fee: <strong className="text-slate-900 dark:text-white">{feeData.application}</strong></span>
+              </div>
+            )}
           </div>
 
           <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed italic border-t border-slate-100 dark:border-slate-800 pt-4">

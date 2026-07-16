@@ -152,7 +152,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { name: "Green Learning Environment", desc: "Beautiful surroundings and landscaped grounds create a peaceful atmosphere that encourages learning, creativity, and personal growth.", image: "/images/leadership_gallery.png" },
     ],
     fees: [
-      { termly: "USD 380", boarding: "USD 1,000", uniform: "USD 250", application: "USD 20", note: "Registration fees are USD 100 for Boarders and USD 50 for Day Scholars. Day Scholars also have a USD 10 grocery fee while Boarders have a grocery list or USD 40 equivalent." }
+      { termly: "USD 380", boarding: "USD 1,000", uniform: "USD 250", note: "Registration fees are USD 100 for Boarders and USD 50 for Day Scholars. Day Scholars also have a USD 10 grocery fee while Boarders have a grocery list or USD 40 equivalent." }
     ],
     scholarships: [
       { title: "Academic Excellence Bursary", eligibility: "Top 3 students entering Form 1 or Lower Sixth", coverage: "50% to 100% Tuition Waiver" },
@@ -201,7 +201,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     ],
     gallery: [
       { name: "Science Laboratory", img: "/images/science_lab_gallery.png", category: "Laboratories" },
-      { name: "Modern Lecture Room", img: "/images/classrooms_gallery.png", category: "Classrooms" },
+      { name: "Modern Lecture Room", img: "/images/classrooms_high.jpg", category: "Classrooms" },
       { name: "Golf Academy training", img: "/images/golf_gallery.png", category: "Golf" },
       { name: "Swimming Practice Lanes", img: "/images/swimming_gallery.png", category: "Swimming" },
     ],
@@ -222,7 +222,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { quote: "Boarding at Errymaple taught me discipline, independent organization, and collaborative respect. The environment is supportive, and the teachers guide us to achieve top academic standards while exploring sports like golf.", author: "Tinashe Mandeya", role: "Current Form 6 Student & Head Boy" }
     ],
     landingImages: {
-      classroom: "/images/classrooms_gallery.png",
+      classroom: "/images/classrooms_high.jpg",
       sports: "/images/golf_gallery.png",
       stem: "/images/robotics_gallery.png",
       leadership: "/images/leadership_gallery.png"
