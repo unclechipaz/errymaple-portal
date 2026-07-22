@@ -45,7 +45,7 @@ export interface SchoolData {
   staff: { name: string; role: string; qualification: string; desc: string; email: string }[];
   departments: { title: string; desc: string; subjects: string[] }[];
   facilities: { name: string; desc: string; image: string }[];
-  fees: { termly: string; boarding?: string; uniform: string; application: string; note: string }[];
+  fees: { termly: string; boarding?: string; uniform: string; application?: string; note: string }[];
   scholarships: { title: string; eligibility: string; coverage: string }[];
   boarding: { title: string; desc: string; features: string[] };
   faqs: { question: string; answer: string }[];

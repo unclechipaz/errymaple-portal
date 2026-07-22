@@ -131,7 +131,7 @@ export default function ContinuousOnlineEntranceTest() {
 
   // Countdown Timer
   useEffect(() => {
-    let interval: any = null;
+    let interval: ReturnType<typeof setInterval> | null = null;
     if (timerActive && timeLeft > 0) {
       interval = setInterval(() => {
         setTimeLeft((prev) => prev - 1);
@@ -140,7 +140,9 @@ export default function ContinuousOnlineEntranceTest() {
     } else if (timeLeft === 0 && timerActive) {
       handleFinishExam();
     }
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [timerActive, timeLeft]);
 
   // Tab Switching Invigilation
