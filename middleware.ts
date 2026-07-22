@@ -15,6 +15,14 @@ export function middleware(request: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
+  // If accessing test.errymaplegroup.ac.zw or test subdomain, serve /entrance-test directly as homepage
+  if (hostname.startsWith("test.") || hostname.includes("test.errymaplegroup.ac.zw")) {
+    if (url.pathname === "/" || url.pathname === "") {
+      url.pathname = "/entrance-test";
+      return NextResponse.rewrite(url);
+    }
+  }
+
   // Determine subdomain based on hostname prefix or custom domain
   let schoolSlug = "";
   if (hostname.startsWith("high.")) {
