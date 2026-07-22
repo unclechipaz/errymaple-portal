@@ -95,6 +95,12 @@ export default function Navbar() {
               {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </button>
 
+            <Link href="/entrance-test">
+              <Button className="font-extrabold bg-amber-500 hover:bg-amber-600 text-slate-950 shadow-md">
+                Online Entrance Test
+              </Button>
+            </Link>
+
             <a href="#admissions">
               <Button variant="default" size="default" className="font-bold">
                 Apply Now
