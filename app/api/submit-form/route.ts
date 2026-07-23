@@ -31,7 +31,8 @@ async function getSubmissions() {
         return {
           quickAdmissions: parsed.quickAdmissions || [],
           highSchoolRegistrations: parsed.highSchoolRegistrations || [],
-          contactInquiries: parsed.contactInquiries || []
+          contactInquiries: parsed.contactInquiries || [],
+          entranceTestResults: parsed.entranceTestResults || []
         };
       }
     } catch (e) {
@@ -48,7 +49,8 @@ async function getSubmissions() {
   let submissions = {
     quickAdmissions: [],
     highSchoolRegistrations: [],
-    contactInquiries: []
+    contactInquiries: [],
+    entranceTestResults: []
   };
 
   if (fs.existsSync(filePath)) {
@@ -58,7 +60,8 @@ async function getSubmissions() {
       submissions = {
         quickAdmissions: parsed.quickAdmissions || [],
         highSchoolRegistrations: parsed.highSchoolRegistrations || [],
-        contactInquiries: parsed.contactInquiries || []
+        contactInquiries: parsed.contactInquiries || [],
+        entranceTestResults: parsed.entranceTestResults || []
       };
     } catch (e) {
       console.error("Failed to parse local submissions file:", e);
@@ -116,6 +119,9 @@ export async function POST(request: Request) {
       submissions.highSchoolRegistrations.push(newSubmission);
     } else if (data.formType === "contact_inquiry" || data.formType === "school_contact_inquiry") {
       submissions.contactInquiries.push(newSubmission);
+    } else if (data.formType === "entrance_test") {
+      if (!submissions.entranceTestResults) submissions.entranceTestResults = [];
+      submissions.entranceTestResults.push(newSubmission);
     } else {
       return NextResponse.json({ success: false, error: "Invalid form type" }, { status: 400 });
     }

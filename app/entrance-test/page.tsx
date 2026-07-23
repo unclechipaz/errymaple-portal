@@ -215,10 +215,42 @@ export default function ContinuousOnlineEntranceTest() {
     setAnswers((prev) => ({ ...prev, [qId]: optionIdx }));
   };
 
-  const handleFinishExam = () => {
+  const handleFinishExam = async () => {
     setTimerActive(false);
     setShowWarningModal(false);
     setStage("results");
+
+    // Save test result to server/Redis via API
+    try {
+      await fetch("/api/submit-form", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "entrance_test",
+          candidateName,
+          parentPhone,
+          primarySchool,
+          cityTown,
+          mathCorrect,
+          mathTotal,
+          mathPercentage,
+          englishCorrect,
+          englishTotal,
+          englishPercentage,
+          totalCorrect,
+          totalQuestions,
+          overallPercentage,
+          timeTakenFormatted: formatTime(timeTaken),
+          timeTakenSeconds: timeTaken,
+          warningCount,
+          autoSubmittedBySecurity,
+          placementTitle: recommendation.title,
+          placementDesc: recommendation.desc
+        })
+      });
+    } catch (e) {
+      console.error("Failed to post entrance test results:", e);
+    }
   };
 
   // Score Calculations

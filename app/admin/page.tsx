@@ -16,7 +16,7 @@ export default function AdminDashboard() {
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState(false);
 
-  const [activeTab, setActiveTab] = useState<"quick" | "registration" | "junior" | "international" | "contact">("quick");
+  const [activeTab, setActiveTab] = useState<"quick" | "registration" | "junior" | "international" | "contact" | "entrance_test">("quick");
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -24,10 +24,12 @@ export default function AdminDashboard() {
     quickAdmissions: any[];
     highSchoolRegistrations: any[];
     contactInquiries: any[];
+    entranceTestResults: any[];
   }>({
     quickAdmissions: [],
     highSchoolRegistrations: [],
-    contactInquiries: []
+    contactInquiries: [],
+    entranceTestResults: []
   });
 
   // Check auth state on mount
@@ -49,7 +51,8 @@ export default function AdminDashboard() {
       setData({
         quickAdmissions: json.quickAdmissions || [],
         highSchoolRegistrations: json.highSchoolRegistrations || [],
-        contactInquiries: json.contactInquiries || []
+        contactInquiries: json.contactInquiries || [],
+        entranceTestResults: json.entranceTestResults || []
       });
     } catch (err: any) {
       setError(err.message || "An error occurred");
@@ -89,6 +92,8 @@ export default function AdminDashboard() {
         ? data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "junior-school")
         : activeTab === "international"
         ? data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "international-school")
+        : activeTab === "entrance_test"
+        ? data.entranceTestResults
         : data.contactInquiries;
 
     if (!searchQuery.trim()) return list;
@@ -96,6 +101,7 @@ export default function AdminDashboard() {
     return list.filter((item: any) => {
       const searchFields = [
         item.data.name,
+        item.data.candidateName,
         item.data.studentName,
         item.data.parentName,
         item.data.email,
@@ -103,6 +109,9 @@ export default function AdminDashboard() {
         item.data.phone,
         item.data.parentPhone,
         item.data.school,
+        item.data.primarySchool,
+        item.data.cityTown,
+        item.data.placementTitle,
         item.data.subject
       ].filter(Boolean).map(field => field.toLowerCase());
 
@@ -144,7 +153,7 @@ export default function AdminDashboard() {
     document.body.removeChild(link);
   };
 
-  const totalCount = data.quickAdmissions.length + data.highSchoolRegistrations.length + data.contactInquiries.length;
+  const totalCount = data.quickAdmissions.length + data.highSchoolRegistrations.length + data.contactInquiries.length + data.entranceTestResults.length;
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-6 sm:p-12 relative overflow-hidden flex items-center justify-center">
@@ -169,7 +178,13 @@ export default function AdminDashboard() {
               </div>
               <h2 className="text-xl font-bold uppercase tracking-widest text-school-blue">Errymaple Group</h2>
               <h3 className="text-2xl font-bold font-serif text-slate-900">Administrator Access</h3>
-              <p className="text-slate-500 text-xs max-w-xs">Enter credentials below to view admissions database.</p>
+              <p className="text-slate-500 text-xs max-w-xs">Enter credentials below to view admissions database & entrance test results.</p>
+            </div>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 text-xs text-amber-900 space-y-1">
+              <p className="font-extrabold uppercase tracking-wider text-[10px] text-amber-800">Administrator Credentials:</p>
+              <p><strong>Username:</strong> <code className="bg-amber-100 px-1.5 py-0.5 rounded font-mono font-bold">admin</code></p>
+              <p><strong>Password:</strong> <code className="bg-amber-100 px-1.5 py-0.5 rounded font-mono font-bold">Admin@Errymaple2026</code></p>
             </div>
 
             <form onSubmit={handleLogin} className="space-y-4">
@@ -241,10 +256,10 @@ export default function AdminDashboard() {
                 </Link>
                 <h1 className="text-3xl sm:text-4xl font-bold font-serif text-slate-900 flex items-center gap-3">
                   <School className="h-9 w-9 text-school-blue" />
-                  Admissions & Inquiries Dashboard
+                  Admissions & Entrance Exam Dashboard
                 </h1>
                 <p className="text-slate-500 text-sm">
-                  Manage and export student applications from the Errymaple Group of Schools portal.
+                  Manage and export student applications and entrance exam placement results.
                 </p>
               </div>
               
@@ -281,7 +296,7 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6">
               {[
                 { label: "Total Applications", value: totalCount, desc: "Combined queries", icon: Users, color: "border-slate-200 text-slate-800" },
-                { label: "Quick Admissions", value: data.quickAdmissions.length, desc: "From landing page modal", icon: Calendar, color: "border-slate-200 text-school-blue" },
+                { label: "Entrance Test Results", value: data.entranceTestResults.length, desc: "Online exam scores", icon: CheckCircle2, color: "border-slate-200 text-emerald-600" },
                 { label: "High School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "high-school" || !item.data.schoolSlug).length, desc: "Form 1 - Form 6 applications", icon: FileText, color: "border-slate-200 text-school-blue" },
                 { label: "Junior School Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "junior-school").length, desc: "ECD A - Grade 7 applications", icon: School, color: "border-slate-200 text-school-blue" },
                 { label: "International Regs", value: data.highSchoolRegistrations.filter((item: any) => item.data.schoolSlug === "international-school").length, desc: "Cambridge admissions", icon: Globe, color: "border-slate-200 text-school-blue" },
@@ -309,6 +324,7 @@ export default function AdminDashboard() {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pt-4">
               <div className="flex flex-wrap bg-slate-100 p-1.5 rounded-2xl border border-slate-200 w-fit gap-1">
                 {[
+                  { id: "entrance_test", label: "Online Entrance Test Results" },
                   { id: "quick", label: "Quick Admissions" },
                   { id: "registration", label: "HS Registrations" },
                   { id: "junior", label: "Junior Regs" },
@@ -323,7 +339,7 @@ export default function AdminDashboard() {
                     }}
                     className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-xl transition-all duration-300 ${
                       activeTab === tab.id
-                        ? "bg-white text-slate-900 shadow-md border border-slate-200/60"
+                        ? "bg-white text-slate-900 shadow-md border border-slate-200/60 font-bold"
                         : "text-slate-500 hover:text-slate-800"
                     }`}
                   >
@@ -336,7 +352,7 @@ export default function AdminDashboard() {
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Search by name, email, phone..."
+                  placeholder="Search candidate, school, city, phone..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full bg-white border border-slate-200 px-10 py-2.5 rounded-2xl text-sm outline-none focus:border-school-blue focus:ring-1 focus:ring-school-blue text-slate-900 placeholder-slate-400"
@@ -361,9 +377,9 @@ export default function AdminDashboard() {
               ) : getFilteredData().length === 0 ? (
                 <div className="py-24 text-center space-y-4 text-slate-400">
                   <CheckCircle2 className="h-10 w-10 mx-auto text-slate-300" />
-                  <p className="text-sm">No applications found.</p>
+                  <p className="text-sm">No records found.</p>
                   <p className="text-xs text-slate-500 max-w-xs mx-auto">
-                    {searchQuery ? "Try refining your search keyword." : "Submissions will show here once filled out by a visitor."}
+                    {searchQuery ? "Try refining your search keyword." : "Submissions will show here once filled out by candidates."}
                   </p>
                 </div>
               ) : (
@@ -371,10 +387,10 @@ export default function AdminDashboard() {
                   <table className="w-full text-left border-collapse">
                     <thead>
                       <tr className="border-b border-slate-200 bg-slate-50/50 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-slate-550">
-                        <th className="py-4 px-6">Timestamp</th>
-                        <th className="py-4 px-6">Primary Details</th>
-                        <th className="py-4 px-6">Curriculum / Choice</th>
-                        <th className="py-4 px-6">Submission Details</th>
+                        <th className="py-4 px-6">Timestamp & Ref</th>
+                        <th className="py-4 px-6">Candidate Details</th>
+                        <th className="py-4 px-6">Subject Scores & Performance</th>
+                        <th className="py-4 px-6">Placement Status & Invigilation</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
@@ -388,6 +404,41 @@ export default function AdminDashboard() {
                             </td>
                             
                             {/* Render based on form type */}
+                            {activeTab === "entrance_test" && (
+                              <>
+                                <td className="py-5 px-6 align-top">
+                                  <p className="font-bold text-slate-950 text-base">{item.data.candidateName}</p>
+                                  <p className="text-slate-600 text-xs mt-1">📞 {item.data.parentPhone || "No phone provided"}</p>
+                                  <p className="text-slate-500 text-xs mt-0.5">🏫 {item.data.primarySchool || "N/A"} ({item.data.cityTown || "N/A"})</p>
+                                </td>
+                                <td className="py-5 px-6 align-top space-y-2">
+                                  <div className="flex items-center gap-3">
+                                    <span className="font-bold text-blue-900">Math:</span>
+                                    <span>{item.data.mathCorrect}/{item.data.mathTotal} ({item.data.mathPercentage}%)</span>
+                                  </div>
+                                  <div className="flex items-center gap-3">
+                                    <span className="font-bold text-indigo-900">English:</span>
+                                    <span>{item.data.englishCorrect}/{item.data.englishTotal} ({item.data.englishPercentage}%)</span>
+                                  </div>
+                                  <div className="pt-1.5 border-t border-slate-100 font-extrabold text-slate-950">
+                                    Composite Score: {item.data.totalCorrect}/{item.data.totalQuestions} ({item.data.overallPercentage}%)
+                                  </div>
+                                </td>
+                                <td className="py-5 px-6 align-top space-y-2 max-w-sm">
+                                  <span className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs rounded-full">
+                                    {item.data.placementTitle || "Assessment Complete"}
+                                  </span>
+                                  <p className="text-slate-600 text-xs">{item.data.placementDesc}</p>
+                                  <div className="text-[11px] text-slate-500 flex items-center gap-2 pt-1">
+                                    <span>⏱️ Time: {item.data.timeTakenFormatted}</span>
+                                    <span className={item.data.warningCount >= 3 ? "text-rose-600 font-bold" : "text-slate-500"}>
+                                      ⚠️ Warnings: {item.data.warningCount}/3
+                                    </span>
+                                  </div>
+                                </td>
+                              </>
+                            )}
+
                             {activeTab === "quick" && (
                               <>
                                 <td className="py-5 px-6 align-top">
@@ -403,6 +454,9 @@ export default function AdminDashboard() {
                                 </td>
                                 <td className="py-5 px-6 align-top max-w-sm text-slate-600 leading-relaxed text-xs">
                                   {item.data.message || <span className="text-slate-400 italic">No custom questions.</span>}
+                                </td>
+                                <td className="py-5 px-6 align-top text-xs text-slate-400">
+                                  N/A
                                 </td>
                               </>
                             )}
@@ -461,6 +515,9 @@ export default function AdminDashboard() {
                                 </td>
                                 <td className="py-5 px-6 align-top max-w-md text-slate-600 leading-relaxed text-xs">
                                   {item.data.message}
+                                </td>
+                                <td className="py-5 px-6 align-top text-xs text-slate-400">
+                                  N/A
                                 </td>
                               </>
                             )}
