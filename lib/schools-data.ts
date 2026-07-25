@@ -231,8 +231,8 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
   "junior-school": {
     name: "Errymaple Junior School",
     shortName: "Junior School",
-    tagline: "Nurturing Foundations for Greatness",
-    motto: "Dreamers, Believers, Achievers",
+    tagline: "Nurturing Excellence, Inspiring Futures",
+    motto: "Nurturing Excellence, Inspiring Futures",
     slug: "junior-school",
     logo: "/images/egs_logo.jpg",
     bgGradient: "from-emerald-600/10 via-emerald-600/5 to-transparent",
@@ -244,114 +244,152 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     btnTheme: "bg-emerald-600 text-white hover:bg-emerald-700",
     primaryColorHex: "#064E3B",
     accentColorHex: "#C5A059",
-    email: "admissions@errymaplejunior.co.zw",
-    phone: "+263 54 252 400 / +263 774 125 456",
-    address: "88 Woodlands Suburbs, Zvishavane, Zimbabwe",
-    aboutText: "Errymaple Junior School caters to ECD A through Grade 7, integrating early STEM skills with the core national curriculum to build child confidence.",
-    welcomeText: "Welcome to Errymaple Junior School. We believe that early child education is the most critical stage in building lifelong character and curiosity. Our dedicated teachers and interactive classrooms are designed to make learning a joyful adventure.",
-    welcomeAuthor: "Mrs. A. Sibasa",
-    welcomeRole: "Headmistress",
-    visionText: "To build the foundational pillars of critical learning and moral character.",
-    missionText: "To deliver play-infused and structured primary education preparing children for secondary success.",
+    email: "errymaplejuniorschool@gmail.com",
+    phone: "+263 77 553 9914 / +263 77 315 9187",
+    address: "No. 1 Musuki Plots, Zvishavane, Zimbabwe",
+    aboutText: "Errymaple Junior School is a leading multicultural educational institution located in Zvishavane, Zimbabwe, offering both the Cambridge and ZIMSEC curricula. We nurture confident, responsible, innovative, and well-rounded learners in a safe, caring, and stimulating environment.",
+    welcomeText: "At Errymaple Junior School, we are dedicated to nurturing confident, responsible, innovative, and well-rounded learners in a safe, caring, and stimulating environment. We believe that every child is unique and possesses unlimited potential. Through quality teaching, modern learning approaches, and a values-based education, we empower our learners to discover their talents, develop critical thinking and leadership skills, and build character and confidence.",
+    welcomeAuthor: "Mr. Causemore Madhawu",
+    welcomeRole: "Principal",
+    leadershipIntro: "Errymaple Junior School is led by a dedicated leadership team committed to maintaining high academic standards and ensuring every learner reaches their full potential. Our qualified teachers work collaboratively to create a nurturing environment where children thrive academically, socially, emotionally, and spiritually.",
+    facilitiesIntro: "Our modern learning environment includes spacious classrooms, science & ICT labs, physical & online libraries, sports grounds, Early Childhood Education play areas, music & arts rooms, boarding facilities, and safe school transport services.",
+    chooseReasons: [
+      "Qualified and passionate teachers",
+      "Exceptional academic performance (100% pass rates since 2021)",
+      "Safe, secure, and child-friendly learning environment",
+      "Holistic child development (academics, sports, arts, tech)",
+      "Modern learning facilities and science/ICT laboratories",
+      "Strong moral and Christian values",
+      "Vibrant sports and co-curricular programmes",
+      "Active parent-school partnerships",
+      "Focus on innovation, leadership, and lifelong learning"
+    ],
+    visionText: "To become a world class provider of real education.",
+    missionText: "To develop learners who become future leaders entrepreneurs, leading artists and world greatest sports superstars",
     coreValues: [
-      { name: "Academic Curiosity", desc: "Encouraging early logic exploration and reading joy.", icon: BookOpen },
-      { name: "Teamwork", desc: "Cooperating respectfully with classmates and teachers.", icon: Heart },
-      { name: "Creativity", desc: "Promoting self-expression through music, art, and coding projects.", icon: Flame },
-      { name: "Discipline", desc: "Nurturing personal responsibility and classroom respect.", icon: Shield },
+      { name: "Accountability", desc: "Taking responsibility for our actions, fulfilling our duties, and being dependable and transparent.", icon: ShieldCheck },
+      { name: "Innovation", desc: "Encouraging creativity, critical thinking, and continuous improvement to solve problems and embrace new ideas.", icon: Cpu },
+      { name: "Integrity", desc: "Acting with honesty, fairness, and respect while always doing what is right.", icon: Shield },
+      { name: "Self-Reliance", desc: "Promoting independence, confidence, initiative, and the ability to solve problems effectively.", icon: Compass },
+      { name: "Diversity", desc: "Respecting and celebrating individual differences while fostering an inclusive and welcoming environment for everyone.", icon: Globe }
     ],
     stats: [
-      { label: "Est. Since", value: "2016", icon: Calendar, desc: "A foundation of trust" },
-      { label: "Grade 7 Pass Rate", value: "100%", icon: Award, desc: "ZIMSEC Exams" },
-      { label: "ECD Classrooms", value: "8", icon: School, desc: "Safe, child-friendly layout" },
-      { label: "Active Sports", value: "6", icon: Trophy, desc: "Early coordination training" },
+      { label: "Est. Since", value: "2016", icon: Calendar, desc: "Founded in Jan 2016" },
+      { label: "Pass Rate", value: "100%", icon: Award, desc: "ZIMSEC & Cambridge since 2021" },
+      { label: "Current Enrollment", value: "500+", icon: Users, desc: "Rapidly growing community" },
+      { label: "Teaching Team", value: "Dedicated", icon: School, desc: "Qualified educators" }
     ],
     milestones: [
-      { year: "2016", title: "Foundation of Junior School", desc: "Established to support early development classes (ECD) and primary grades.", icon: Building },
-      { year: "2019", title: "Woodlands Campus Inauguration", desc: "Moved into a purpose-built primary campus with playgrounds and a kids' library.", icon: Building },
-      { year: "2023", title: "Junior Computer Lab launch", desc: "Installed child-friendly desktop stations and began basic logic coding classes.", icon: Cpu },
+      { year: "2016", title: "Establishment of Errymaple Primary School", desc: "Established in January 2016 under Director Mrs Ruswa and CEO the late Mr Ruswa in Makwasha with under 50 learners and 3 boarders.", icon: Building },
+      { year: "2016", title: "Rapid Enrollment Expansion", desc: "By Term 3 of 2016, enrollment increased to about 100 learners as community trust grew rapidly.", icon: Award },
+      { year: "2021", title: "100% Academic Pass Rate Milestone", desc: "Achieved and maintained an exceptional 100% pass rate in both ZIMSEC and Cambridge examinations.", icon: Trophy },
+      { year: "2026", title: "Over 500 Learners & Growing", desc: "Grown into a respected learning institution offering excellent academic programmes, sports, tech, boarding, and character development.", icon: Building }
     ],
     staff: [
-      { name: "Mrs. A. Sibasa", role: "Headmistress", qualification: "B.Ed in Early Childhood Development", desc: "Providing dynamic child-centered leadership and managing curriculum quality.", email: "headmistress@errymaplejunior.co.zw" },
-      { name: "Mr. P. Ncube", role: "Senior Teacher", qualification: "Diploma in Primary Education", desc: "Managing sports days, Grade 7 exam preparation, and co-curricular programs.", email: "pncube@errymaplejunior.co.zw" }
+      { name: "Mr. Causemore Madhawu", role: "Principal", qualification: "BEd Computer Science, Diploma in Education", desc: "Dedicated, visionary, and results-driven educational leader committed to academic excellence, innovation, and holistic development.", email: "errymaplejuniorschool@gmail.com" },
+      { name: "Mrs. Lilyjoy Charambira Muzondo", role: "Vice Principal", qualification: "MBA, BSc Honours Degree, Diploma in Education", desc: "Accomplished educational leader and entrepreneur committed to academic excellence and innovation.", email: "errymaplejuniorschool@gmail.com" },
+      { name: "Ms. Ncube", role: "Head of Department (Infants)", qualification: "Infant Education Specialist", desc: "Dedicated, caring, and passionate educator committed to providing a strong foundation for young learners in the Infants Department.", email: "errymaplejuniorschool@gmail.com" },
+      { name: "Mrs. Zhou", role: "Head of ECE", qualification: "Early Childhood Education Specialist", desc: "Dedicated and nurturing educator passionate about laying a strong educational foundation for Early Childhood Education.", email: "errymaplejuniorschool@gmail.com" },
+      { name: "Ms. Ndembela", role: "Administrator", qualification: "School Administration", desc: "Organised, efficient, and dedicated professional overseeing daily administrative operations with excellence.", email: "errymaplejuniorschool@gmail.com" }
     ],
     departments: [
-      { title: "Early Childhood (ECD A - B)", desc: "Play-based coordination, vocabulary builder, and basic counting classes.", subjects: ["Language Arts", "Numbers & Logic", "Expressive Arts", "Physical Activity"] },
-      { title: "Junior Primary (Grade 1 - 3)", desc: "Developing strong reading comprehension and arithmetic foundations.", subjects: ["English Language", "Mathematics", "Science & Technology", "Shona/Ndebele"] },
-      { title: "Senior Primary (Grade 4 - 7)", desc: "Advanced subject learning and ZIMSEC exam preparation.", subjects: ["Mathematics", "English", "General Paper", "Agriculture & Tech"] }
+      { title: "Early Childhood Education (ECD A & B)", desc: "Warm, safe, and stimulating play-based and structured learning environment nurturing intellectual, social, emotional, physical, and moral growth.", subjects: ["Language & Storytelling", "Numeracy & Counting", "Music & Movement", "Play & Exploration", "Outdoor Physical Activity"] },
+      { title: "Infants Department (Grades 1 - 2)", desc: "Building strong communication, early literacy, phonics, and mathematical reasoning.", subjects: ["English Language", "Mathematics", "ChiShona / IsiNdebele", "Science and Technology", "Physical Education & Arts"] },
+      { title: "Junior Primary Department (Grades 3 - 7)", desc: "Comprehensive ZIMSEC Heritage-Based and Cambridge Primary curricula preparing learners for secondary success.", subjects: ["Mathematics", "English Language", "ChiShona / IsiNdebele", "Science & Technology", "Social Science", "ICT & Coding", "Physical Education & Arts"] }
     ],
     facilities: [
-      { name: "Woodlands Kids Playground", desc: "Secure outdoor climbing frames, swings, and sandboxes under shading.", image: "/images/cultural_gallery.png" },
-      { name: "Junior Computer Corner", desc: "A child-friendly IT room teaching basic mouse control, keyboarding, and logic games.", image: "/images/robotics_gallery.png" },
-      { name: "Primary Reading Room", desc: "Colorful space with children's literature, picture books, and story circles.", image: "/images/classrooms_gallery.png" }
+      { name: "Spacious & Well-Equipped Classrooms", desc: "Warm, safe, and stimulating environment designed for child-centred learning, exploration, and discovery.", image: "/images/classrooms_gallery.png" },
+      { name: "Science and ICT Laboratories", desc: "Modern laboratories equipping learners with digital literacy, coding basics, internet safety, and scientific inquiry skills.", image: "/images/facilities_computer_lab.png" },
+      { name: "Library & Reading Centre", desc: "Well-stocked physical and online libraries for both Infants and Junior sections, encouraging a love for reading and research.", image: "/images/facilities_library.jpg" },
+      { name: "Sports Grounds and Courts", desc: "State-of-the-art courts and fields for soccer, netball, volleyball, basketball, golf, tennis, athletics, rugby, cricket, and swimming.", image: "/images/sports_gallery.png" },
+      { name: "ECE Play Areas", desc: "Dedicated Early Childhood Education play zones designed for safe, imaginative play and motor skills development.", image: "/images/cultural_gallery.png" },
+      { name: "Music and Arts Rooms", desc: "Creative expression spaces for drawing, painting, music, dance, drama, modelling, and craft work.", image: "/images/cultural_gallery.png" },
+      { name: "Nurturing Boarding Facilities", desc: "Safe, secure, and nurturing home away from home with round-the-clock care, supervised study sessions, homework support, and balanced meals.", image: "/images/facilities_dining.jpg" },
+      { name: "School Transport Services", desc: "Safe and reliable transport fleet including big buses, commuter omnibuses, and small cars for daily runs and educational trips.", image: "/images/school_bus.jpg" }
     ],
     fees: [
-      { termly: "$450", uniform: "$150", application: "$10", note: "Fees include morning fruit snacks and access to all co-curricular clubs." }
+      { termly: "$195 - $500", boarding: "$735 - $800", uniform: "$322 - $348", application: "$40", note: "Tuition Day Scholars: ECD A $195, ECD B $235, Grade 1 $335, Grade 2-4 $435, Grade 5-7 ZIMSEC $435, Grade 5-7 Cambridge $500. Boarding: ZIMSEC $735, Cambridge $800. Registration $40, Bed Fee $100. Girls Uniform $348, Boys Uniform $322." }
     ],
     scholarships: [
-      { title: "Primary Star Scholarship", eligibility: "Grade 3 top performer showing exceptional character", coverage: "50% Tuition Waiver" },
+      { title: "Junior Academic Excellence Award", eligibility: "Outstanding performance in Cambridge & ZIMSEC primary assessments", coverage: "Tuition Bursaries Available" },
     ],
     boarding: {
-      title: "Day School Services & Boarding Prep",
-      desc: "We focus on day scholar services but offer structured boarding prep programs for Grade 7 pupils planning to enter high school.",
+      title: "Boarding Life at Errymaple Junior School",
+      desc: "Our boarding facilities provide a safe, secure, and nurturing home away from home where learners are encouraged to grow academically, socially, and emotionally.",
       features: [
-        "Supervised afternoon care and homework clubs",
-        "School bus transport covering major residential zones",
-        "Healthy school lunch plans available termly",
-        "Introductory boarding weekend sessions for Grade 7 scholars"
+        "Structured daily routines with supervised study sessions and homework support",
+        "Balanced and nutritious meals prepared in a clean and hygienic environment",
+        "Round-the-clock care, guidance, and support from experienced boarding staff",
+        "Recreational activities, sports, cultural programmes, and life skills like Art/Crafts and Home Economics"
       ]
     },
     faqs: [
-      { question: "What age does ECD A start?", answer: "ECD A children must be at least 4 years old at the beginning of the academic calendar year." },
-      { question: "What are the school hours?", answer: "ECD classes run from 08:00 AM to 12:30 PM. Grades 1 to 7 run from 08:00 AM to 03:30 PM." },
-      { question: "Do you offer Cambridge Primary?", answer: "We focus on the ZIMSEC primary syllabus infused with Cambridge English and science resources to ensure balanced learning." }
+      { question: "What curricula do you offer?", answer: "We offer a blend of the ZIMSEC Heritage-Based Curriculum and the Cambridge Curriculum for ECD A through Grade 7." },
+      { question: "What are the boarding facilities like?", answer: "Our boarding provides round-the-clock care, supervised study sessions, homework support, nutritious meals, and a warm family atmosphere." },
+      { question: "Do you offer school transport?", answer: "Yes, we provide safe and reliable school transport using big buses, commuter omnibuses, and small cars." },
+      { question: "What sports and clubs are available?", answer: "We offer soccer, netball, volleyball, basketball, golf, tennis, athletics, rugby, cricket, swimming, debate, robotics, chess, music, drama, and more." },
+      { question: "What are the pass rates?", answer: "Errymaple Junior School has maintained an exceptional 100% pass rate in both ZIMSEC and Cambridge examinations since 2021." }
     ],
     curriculum: [
-      { title: "ZIMSEC Primary Framework", desc: "National core syllabus preparing students for Grade 7 public examinations.", highlights: ["Strong mathematical foundation", "Agriculture & Environmental science", "Local language fluency"] },
-      { title: "Cambridge Primary English & Math resources", desc: "Supplementing our textbooks with international logic problems.", highlights: ["Global comprehension tasks", "Creative story construction", "Interactive science projects"] }
+      { title: "ZIMSEC Heritage-Based Curriculum", desc: "Equips learners with competencies, values, and practical skills while promoting Zimbabwean culture, heritage, and identity.", highlights: ["Mathematics & English Language", "ChiShona / IsiNdebele Language", "Science & Technology & Social Science", "ICT, Physical Education & Arts"] },
+      { title: "Cambridge Curriculum", desc: "Develops learners' confidence, curiosity, communication, and problem-solving skills to international academic standards.", highlights: ["Cambridge English", "Cambridge Mathematics", "Cambridge Science"] }
     ],
     results: [
-      { year: "2025", oLevelPass: "100%", aLevelPass: "N/A", universityPlacement: "N/A" },
-      { year: "2024", oLevelPass: "100%", aLevelPass: "N/A", universityPlacement: "N/A" }
+      { year: "2025", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" },
+      { year: "2024", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" },
+      { year: "2023", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" },
+      { year: "2022", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" },
+      { year: "2021", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" }
     ],
     library: {
-      title: "Woodlands Primary Library",
-      desc: "A bright room stocked with children's storybooks, basic science cards, maps, and tablets loaded with primary learning applications.",
-      sections: ["ECD Picture Books", "Junior Reader Series", "Primary Geography & Maps", "Digital Learning Tablets"]
+      title: "School Library – Physical and Online",
+      desc: "Well-stocked physical and online libraries for both Infants and Junior sections, providing digital resources, storybooks, and reference materials that strengthen literacy and critical thinking.",
+      sections: ["ECD & Infants Picture Books", "Junior Reader & Literature Series", "Digital Learning & Online Database", "Primary Science & Geography Maps"]
     },
     sports: [
-      { name: "Primary Athletics", desc: "Focusing on early physical coordination, short sprint running, and fun hurdles.", achievements: "Champions of Zvishavane Primary Schools Sports Gala (2025)" },
-      { name: "Mini-Football & Netball", desc: "Early teamwork development, ball control, and passing training.", achievements: "Gold medals in regional junior netball tournaments" }
+      { name: "Soccer & Netball", desc: "Teamwork, tactical skills, and athletic fitness.", achievements: "100% Active Participation & Tournament Medals" },
+      { name: "Volleyball & Basketball", desc: "Court agility, coordination, and team dynamics.", achievements: "Inter-school Champions" },
+      { name: "Golf & Tennis", desc: "Precision, focus, and sport discipline.", achievements: "Junior Golf & Tennis Masters" },
+      { name: "Athletics & Swimming", desc: "Speed, endurance, strokes, and physical fitness.", achievements: "Regional Sports Gala Trophies" },
+      { name: "Rugby, Cricket, Handball & Hockey", desc: "Diverse sporting opportunities fostering sportsmanship.", achievements: "Active Inter-House Competitions" }
     ],
     clubs: [
-      { name: "Music & Drama Circle", desc: "Learning basic recorder playing, singing, and stage acting for school plays.", achievements: "Outstanding Performance Prize at National Arts Festival" },
-      { name: "Young STEM club", desc: "Making simple paper plane models, block lego assemblies, and color chemistry.", achievements: "Hosted Junior Science & Tech Exhibition" }
+      { name: "Robotics & Coding Club", desc: "Digital literacy, coding basics, and tech innovation.", achievements: "Junior Tech & Innovation Projects" },
+      { name: "Debate & Public Speaking / Quiz Club", desc: "Rhetoric, communication skills, and general knowledge.", achievements: "Junior Debate Champions" },
+      { name: "Music, Choir & Drama Club", desc: "Singing, instrument playing, stage acting, and creative expression.", achievements: "National Arts Festival Awards" },
+      { name: "Arts & Design / Environmental / Agriculture", desc: "Hands-on environmental care, farming basics, and visual arts.", achievements: "School Eco-Projects & Art Exhibitions" },
+      { name: "Chess & Home Economics", desc: "Strategic thinking, cooking, sewing, and life skills.", achievements: "Active Student Engagement" }
     ],
     events: [
-      { title: "Junior Sports Day Gala", date: "July 22, 2026", time: "09:00 AM", location: "Junior Fields", category: "Sports" },
-      { title: "ECD Parents Reading Circle", date: "August 10, 2026", time: "02:00 PM", location: "School Library", category: "Events" }
+      { title: "Annual Sports Day", date: "July 22, 2026", time: "08:30 AM", location: "Junior Sports Grounds", category: "Sports" },
+      { title: "Speech and Prize Giving Ceremony", date: "October 15, 2026", time: "09:00 AM", location: "School Grounds", category: "Academics" },
+      { title: "Wellness & Cultural Day", date: "August 12, 2026", time: "09:00 AM", location: "School Grounds", category: "Culture" },
+      { title: "Educational Tours & Excursions", date: "Termly", time: "Various", location: "Local & International Sites", category: "Tours" },
+      { title: "Graduation Ceremonies & Fun Days", date: "November 20, 2026", time: "09:00 AM", location: "School Grounds", category: "Events" }
     ],
     gallery: [
-      { name: "Creative Art Class", img: "/images/cultural_gallery.png", category: "Classrooms" },
-      { name: "Woodlands Play Area", img: "/images/leadership_gallery.png", category: "Playground" },
-      { name: "Junior Computer Session", img: "/images/robotics_gallery.png", category: "STEM" },
+      { name: "Classroom Learning", img: "/images/classrooms_gallery.png", category: "Classrooms" },
+      { name: "Sports Grounds", img: "/images/sports_gallery.png", category: "Sports" },
+      { name: "ICT & Science Labs", img: "/images/facilities_computer_lab.png", category: "Laboratories" },
     ],
     downloads: [
       { name: "Junior School Application Form 2026", size: "980 KB", type: "PDF" },
-      { name: "Required Stationery & Uniform list", size: "450 KB", type: "PDF" }
+      { name: "Fee Schedule & Information 2026", size: "650 KB", type: "PDF" },
+      { name: "Required Uniform List (Summer & Winter)", size: "450 KB", type: "PDF" }
     ],
     calendar: [
       { event: "Primary Schools Open", date: "May 12, 2026", type: "Academic" },
-      { event: "Woodlands Sports Gala", date: "July 22, 2026", type: "Sports" },
+      { event: "Annual Sports Day & Wellness Day", date: "July 22, 2026", type: "Sports" },
       { event: "Primary School Closing", date: "August 6, 2026", type: "Holiday" }
     ],
     testimonials: [
-      { quote: "Our daughter loves Errymaple Junior School. The teachers are so gentle and parent communication is always fast. She has learned basic computer mouse skills and simple coding while excelling in reading.", author: "Mrs. Chipo Moyo", role: "Parent of ECD B Student" },
-      { quote: "Being Head Boy at Errymaple Junior taught me to lead by example and support my fellow primary students. The classrooms are clean and colorful, and the library has the best adventure books.", author: "Shawn Mpofu", role: "Grade 7 Head Boy (Class of 2025)" }
+      { quote: "Errymaple Junior School has consistently maintained an exceptional 100% pass rate in both ZIMSEC and Cambridge examinations since 2021. The teachers are dedicated and caring.", author: "Parent Teacher Association", role: "School Board" },
+      { quote: "Our children benefit from a blend of academic excellence, coding, robotics, sports, and strong Christian and Ubuntu values.", author: "Mr. Causemore Madhawu", role: "Principal" }
     ],
     landingImages: {
       classroom: "/images/classrooms_gallery.png",
-      sports: "/images/golf_gallery.png",
-      stem: "/images/robotics_gallery.png",
+      sports: "/images/sports_gallery.png",
+      stem: "/images/facilities_computer_lab.png",
       leadership: "/images/leadership_gallery.png"
     }
   },

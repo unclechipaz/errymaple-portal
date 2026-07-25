@@ -187,6 +187,159 @@ export default function SchoolFees({ params }: PageProps) {
     );
   }
 
+  if (schoolSlugLower === "junior-school") {
+    return (
+      <main className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+        <PageHeader 
+          title="Tuition, Boarding & School Fees 2026" 
+          subtitle="Fee Schedules"
+          breadcrumbs={[
+            { label: "Admissions" },
+            { label: "Fees Schedule" }
+          ]}
+        />
+
+        <section className="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+          
+          {/* Intro */}
+          <div className="space-y-6 text-center max-w-3xl mx-auto">
+            <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-school-gold block">
+              School Fees Summary 2026
+            </span>
+            <h2 className="text-3xl font-bold font-serif text-slate-900 dark:text-white">
+              Transparent & Value-Driven Fee Structure
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+              Our fees are competitive and designed to provide excellent value while maintaining high educational standards. Flexible payment arrangements may be available.
+            </p>
+          </div>
+
+          {/* Fees Tables & Breakdown */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            {/* Day Scholars Tuition */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 rounded-3xl shadow-lg flex flex-col justify-between"
+            >
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Day Scholars</span>
+                  <span className="bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Tuition / Term</span>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-100 dark:border-slate-800/50">
+                    <span className="text-slate-600 dark:text-slate-300 font-medium">ECD A</span>
+                    <strong className="text-slate-900 dark:text-white font-bold">$195 / term</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-100 dark:border-slate-800/50">
+                    <span className="text-slate-600 dark:text-slate-300 font-medium">ECD B</span>
+                    <strong className="text-slate-900 dark:text-white font-bold">$235 / term</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-100 dark:border-slate-800/50">
+                    <span className="text-slate-600 dark:text-slate-300 font-medium">Grade 1</span>
+                    <strong className="text-slate-900 dark:text-white font-bold">$335 / term</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-100 dark:border-slate-800/50">
+                    <span className="text-slate-600 dark:text-slate-300 font-medium">Grade 2 – 4</span>
+                    <strong className="text-slate-900 dark:text-white font-bold">$435 / term</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-1 border-b border-slate-100 dark:border-slate-800/50">
+                    <span className="text-slate-600 dark:text-slate-300 font-medium">Grade 5 – 7 (ZIMSEC Stream)</span>
+                    <strong className="text-slate-900 dark:text-white font-bold">$435 / term</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-1">
+                    <span className="text-slate-600 dark:text-slate-300 font-medium">Grade 5 – 7 (CAMBRIDGE Stream)</span>
+                    <strong className="text-emerald-600 dark:text-school-gold font-bold">$500 / term</strong>
+                  </div>
+                </div>
+              </div>
+              <p className="text-[11px] text-slate-400 mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 italic">
+                * Note: Specialisation starts from Grade 5 to 7.
+              </p>
+            </motion.div>
+
+            {/* Boarding Residency */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 rounded-3xl shadow-lg flex flex-col justify-between"
+            >
+              <div className="space-y-6">
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Boarding Residency</span>
+                  <span className="bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">Hostel / Term</span>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-2 border-b border-slate-100 dark:border-slate-800/50">
+                    <div>
+                      <span className="text-slate-900 dark:text-white font-bold block">ZIMSEC Boarding Stream</span>
+                      <span className="text-slate-500 text-[11px]">Includes room, 3 meals daily & study care</span>
+                    </div>
+                    <strong className="text-slate-900 dark:text-white font-serif text-xl">$735 / term</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs sm:text-sm py-2">
+                    <div>
+                      <span className="text-slate-900 dark:text-white font-bold block">CAMBRIDGE Boarding Stream</span>
+                      <span className="text-slate-500 text-[11px]">Includes room, 3 meals & Cambridge tutorials</span>
+                    </div>
+                    <strong className="text-emerald-600 dark:text-school-gold font-serif text-xl">$800 / term</strong>
+                  </div>
+                </div>
+
+                {/* Once-off fees */}
+                <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Once-off Enrollment Fees</h4>
+                  <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-300">
+                    <span>Registration Fee:</span>
+                    <strong className="text-slate-900 dark:text-white">$40</strong>
+                  </div>
+                  <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-300">
+                    <span>Bed Fee (Boarders):</span>
+                    <strong className="text-slate-900 dark:text-white">$100</strong>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+
+          {/* Uniform & Transport Cards */}
+          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-8 sm:p-10 shadow-md space-y-6 max-w-4xl mx-auto">
+            <div className="flex items-center space-x-2.5">
+              <Landmark className="h-5 w-5 text-emerald-600 dark:text-school-gold shrink-0" />
+              <h3 className="text-lg font-bold font-serif text-slate-950 dark:text-white">Uniform Sets & Transport Services</h3>
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-xs sm:text-sm">
+              <div className="space-y-2 p-4 rounded-2xl bg-slate-50 dark:bg-slate-850">
+                <h4 className="font-bold text-slate-900 dark:text-white">Uniform Requirements (Summer & Winter)</h4>
+                <p className="text-slate-500 text-xs">All uniforms are bought directly at the school.</p>
+                <div className="pt-2 space-y-1 text-slate-700 dark:text-slate-300">
+                  <div className="flex justify-between"><span>Girls Uniform Set:</span><strong>$348</strong></div>
+                  <div className="flex justify-between"><span>Boys Uniform Set:</span><strong>$322</strong></div>
+                </div>
+              </div>
+
+              <div className="space-y-2 p-4 rounded-2xl bg-slate-50 dark:bg-slate-850">
+                <h4 className="font-bold text-slate-900 dark:text-white">Transport Services</h4>
+                <p className="text-slate-500 text-xs">We provide safe and reliable transport fleet including big buses, commuter omnibuses, and small cars for daily runs and trips.</p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+      </main>
+    );
+  }
+
   const feeData = schoolInfo.fees[0];
 
   return (
