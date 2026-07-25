@@ -67,9 +67,15 @@ export default function SchoolResults({ params }: PageProps) {
               <thead>
                 <tr className="border-b border-slate-100 dark:border-slate-800 text-xs font-bold text-slate-400 uppercase tracking-wider bg-slate-50/50 dark:bg-slate-950/20">
                   <th className="py-4 px-6 sm:px-8">Academic Year</th>
-                  <th className="py-4 px-6">Primary / Ordinary Level</th>
-                  <th className="py-4 px-6">Advanced Level</th>
-                  <th className="py-4 px-6 sm:px-8">University / High-School Entry Placement</th>
+                  <th className="py-4 px-6">
+                    {schoolSlug === "junior-school" ? "ZIMSEC Exam" : "Primary / Ordinary Level"}
+                  </th>
+                  <th className="py-4 px-6">
+                    {schoolSlug === "junior-school" ? "Cambridge Exam" : "Advanced Level"}
+                  </th>
+                  <th className="py-4 px-6 sm:px-8">
+                    {schoolSlug === "junior-school" ? "High School Placement" : "University / High-School Entry Placement"}
+                  </th>
                 </tr>
               </thead>
               <tbody className="text-xs sm:text-sm text-slate-700 dark:text-slate-350 divide-y divide-slate-100 dark:divide-slate-800">

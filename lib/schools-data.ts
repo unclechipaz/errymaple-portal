@@ -335,11 +335,11 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { title: "Cambridge Curriculum", desc: "Develops learners' confidence, curiosity, communication, and problem-solving skills to international academic standards.", highlights: ["Cambridge English", "Cambridge Mathematics", "Cambridge Science"] }
     ],
     results: [
-      { year: "2025", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" },
-      { year: "2024", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" },
-      { year: "2023", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" },
-      { year: "2022", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" },
-      { year: "2021", oLevelPass: "100% (ZIMSEC)", aLevelPass: "100% (Cambridge)", universityPlacement: "Grade 7 100% Pass Rate" }
+      { year: "2025", oLevelPass: "100% Pass Rate", aLevelPass: "100% Pass Rate", universityPlacement: "100% Placement" },
+      { year: "2024", oLevelPass: "100% Pass Rate", aLevelPass: "100% Pass Rate", universityPlacement: "100% Placement" },
+      { year: "2023", oLevelPass: "100% Pass Rate", aLevelPass: "100% Pass Rate", universityPlacement: "100% Placement" },
+      { year: "2022", oLevelPass: "100% Pass Rate", aLevelPass: "100% Pass Rate", universityPlacement: "100% Placement" },
+      { year: "2021", oLevelPass: "100% Pass Rate", aLevelPass: "100% Pass Rate", universityPlacement: "100% Placement" }
     ],
     library: {
       title: "School Library – Physical and Online",
