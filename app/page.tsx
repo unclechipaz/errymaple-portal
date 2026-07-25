@@ -36,7 +36,7 @@ export default function Home() {
         return "https://international.errymaplegroup.ac.zw";
       }
       if (schoolSlug === "junior-school") {
-        return "/junior";
+        return "https://junior.errymaplegroup.ac.zw";
       }
       return `https://${prefix}.errymaplegroup.ac.zw`;
     }
