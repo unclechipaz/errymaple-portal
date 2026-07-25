@@ -27,7 +27,11 @@ export function middleware(request: NextRequest) {
   let schoolSlug = "";
   if (hostname.startsWith("high.")) {
     schoolSlug = "high-school";
-  } else if (hostname.startsWith("junior.")) {
+  } else if (
+    hostname.startsWith("junior.") ||
+    hostname.includes("errymaplejunior.ac.zw") ||
+    hostname.includes("errymapleprimary.ac.zw")
+  ) {
     schoolSlug = "junior-school";
   } else if (
     hostname.startsWith("international.") || 
