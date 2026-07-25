@@ -126,7 +126,6 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
     { name: "Calendar", href: `/${schoolSlug}/calendar` },
     { name: "Downloads", href: `/${schoolSlug}/downloads` },
     { name: "Contact", href: `/${schoolSlug}/contact` },
-    { name: "Parent Portal", href: `/${schoolSlug}/parent-portal` },
   ];
 
   return (
@@ -137,7 +136,7 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
           : "bg-transparent backdrop-blur-sm py-5 border-b border-slate-200/10 dark:border-white/5"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
           {/* Logo / Title */}
@@ -154,9 +153,9 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
               </span>
             </div>
           </Link>
- 
+
           {/* Desktop Navigation */}
-          <div className="hidden xl:flex items-center gap-0.5 2xl:gap-1.5">
+          <div className="hidden xl:flex items-center gap-1.5 2xl:gap-3">
             {menuItems.map((item) => (
               <div
                 key={item.name}
@@ -166,7 +165,7 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
               >
                 {item.dropdown ? (
                   <button
-                    className={`flex items-center space-x-0.5 px-1.5 py-1 rounded-lg text-[11px] 2xl:text-[13px] font-semibold whitespace-nowrap transition-colors text-slate-700 dark:text-slate-200 hover:text-school-gold`}
+                    className={`flex items-center space-x-1 px-2 py-1 rounded-lg text-[13px] 2xl:text-[15px] font-semibold whitespace-nowrap transition-colors text-slate-700 dark:text-slate-200 hover:text-school-gold`}
                   >
                     <span>{item.name}</span>
                     <ChevronDown className="h-4 w-4 shrink-0" />
@@ -174,7 +173,7 @@ export default function HighSchoolNavbar({ schoolSlug: propSchoolSlug }: NavbarP
                 ) : (
                   <Link
                     href={getLink(item.href)}
-                    className={`px-1.5 py-1 rounded-lg text-[11px] 2xl:text-[13px] font-semibold whitespace-nowrap transition-colors ${
+                    className={`px-2 py-1 rounded-lg text-[13px] 2xl:text-[15px] font-semibold whitespace-nowrap transition-colors ${
                       pathname === getLink(item.href)
                         ? "text-school-gold font-bold"
                         : "text-slate-700 dark:text-slate-200 hover:text-school-gold"
