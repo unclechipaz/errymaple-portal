@@ -181,12 +181,6 @@ export default function AdminDashboard() {
               <p className="text-slate-500 text-xs max-w-xs">Enter credentials below to view admissions database & entrance test results.</p>
             </div>
 
-            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 text-xs text-amber-900 space-y-1">
-              <p className="font-extrabold uppercase tracking-wider text-[10px] text-amber-800">Administrator Credentials:</p>
-              <p><strong>Username:</strong> <code className="bg-amber-100 px-1.5 py-0.5 rounded font-mono font-bold">admin</code></p>
-              <p><strong>Password:</strong> <code className="bg-amber-100 px-1.5 py-0.5 rounded font-mono font-bold">Admin@Errymaple2026</code></p>
-            </div>
-
             <form onSubmit={handleLogin} className="space-y-4">
               {loginError && (
                 <motion.div 
@@ -209,7 +203,7 @@ export default function AdminDashboard() {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required
-                    placeholder="admin"
+                    placeholder="Enter username"
                     className="w-full bg-slate-50 border border-slate-200 px-10 py-3 rounded-xl text-sm outline-none focus:border-school-blue focus:ring-1 focus:ring-school-blue text-slate-900 placeholder-slate-400"
                   />
                 </div>
@@ -284,10 +278,10 @@ export default function AdminDashboard() {
                 </Button>
                 <Button 
                   onClick={handleLogout}
-                  className="bg-red-650 hover:bg-red-750 text-white font-bold flex items-center gap-2"
+                  className="!bg-red-600 hover:!bg-red-700 !text-white font-bold flex items-center gap-2 px-4 py-2 rounded-xl shadow-md transition-all cursor-pointer"
                 >
-                  <LogOut className="h-4 w-4" />
-                  <span className="hidden sm:inline">Logout</span>
+                  <LogOut className="h-4 w-4 shrink-0 !text-white" />
+                  <span className="!text-white font-bold">Logout</span>
                 </Button>
               </div>
             </div>
