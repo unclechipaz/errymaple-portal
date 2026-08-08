@@ -226,7 +226,7 @@ export default function SchoolNews({ params }: PageProps) {
                   <img 
                     src={item.img} 
                     alt={item.title} 
-                    onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
+                    onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                     className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
                   />
                   <span className="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
@@ -326,7 +326,7 @@ export default function SchoolNews({ params }: PageProps) {
                   <img 
                     src={activeArticle.img} 
                     alt={activeArticle.title} 
-                    onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
+                    onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                     className="w-full max-h-[480px] object-contain rounded-xl" 
                   />
                 </div>
@@ -367,7 +367,7 @@ export default function SchoolNews({ params }: PageProps) {
                             <img 
                               src={imgUrl} 
                               alt="Errymaple Prize Giving Event" 
-                              onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
+                              onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                               className="w-full max-h-[480px] object-contain rounded-xl" 
                             />
                           </div>
