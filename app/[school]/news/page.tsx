@@ -26,6 +26,60 @@ export default function SchoolNews({ params }: PageProps) {
   // Create news items dynamically based on milestones or custom entries
   const newsList = [
     {
+      title: "Errymaple High School Celebrates Excellence While Embracing an AI-Powered Future",
+      date: "August 4, 2026",
+      author: "Charlton Chipandambira",
+      desc: "Beyond Excellence: Empowering the Next Generation Through AI and Innovation. Errymaple High School held its 2026 Prize Giving Day in Makwasha, Zvishavane, showcasing robotics exhibitions and future-ready learning.",
+      category: "Prize Giving",
+      img: "/images/prizegiving_1.jpg",
+      content: [
+        "**MAKWASHA, ZVISHAVANE – 4 August 2026** – Errymaple High School reaffirmed its commitment to academic excellence, innovation and future-ready education during its 2026 Prize Giving Day, held under the inspiring theme **\"Beyond Excellence: Empowering the Next Generation Through AI and Innovation.\"** The event brought together students, parents, guardians, staff members, invited guests and education stakeholders to celebrate outstanding achievement while charting a bold course for the future of education in the era of artificial intelligence.",
+        "The ceremony showcased not only the school's impressive academic accomplishments but also its deliberate investment in practical learning, technological advancement and innovation, reflecting its vision of preparing learners to compete confidently in a rapidly changing global landscape.",
+        "IMAGE:/images/prizegiving_1.jpg",
+        "## Innovation Takes Centre Stage",
+        "The day's proceedings began with a series of exhibitions mounted by various academic departments, transforming the school grounds into a vibrant showcase of creativity, research and practical learning.",
+        "Visitors toured exhibitions presented by the:",
+        "• Robotics and Artificial Intelligence Department\n• Computer Servicing and Maintenance Department\n• Commercials Department\n• Geography Department\n• Agriculture Department",
+        "The Robotics and Artificial Intelligence exhibition attracted significant attention as students demonstrated projects illustrating how AI technologies can be integrated into education, problem-solving and everyday life. Learners confidently explained the principles behind their innovations, highlighting how artificial intelligence is becoming an essential tool across various professions.",
+        "The Computer Servicing and Maintenance Department displayed practical skills in computer assembly, troubleshooting, networking and hardware maintenance, demonstrating the school's commitment to producing technically competent graduates equipped with industry-relevant skills.",
+        "The Commercials Department exhibited entrepreneurial projects, accounting concepts and business innovations, while Geography learners presented environmental research, mapping techniques and sustainable development initiatives. Agriculture students impressed visitors with displays focusing on modern farming practices, crop production and agricultural innovation, reinforcing the importance of agriculture in Zimbabwe's economic development.",
+        "The exhibitions reflected the school's practical approach to education, where classroom learning is complemented by hands-on experience, creativity and real-world application.",
+        "IMAGE:/images/prizegiving_4.jpg",
+        "## Celebrating Excellence",
+        "Following the exhibitions, guests gathered for the official Prize Giving Ceremony, where exceptional students were recognised for outstanding achievements in academics, leadership, sports and co-curricular activities.",
+        "The ceremony celebrated learners whose hard work, discipline and commitment had distinguished them throughout the academic year. Parents applauded proudly as students received awards for their dedication and excellence across various disciplines.",
+        "The event served as a reminder that excellence extends beyond examination results to include innovation, character, leadership, creativity and service to the community.",
+        "IMAGE:/images/prizegiving_2.jpg",
+        "## Director Calls for Responsible Adoption of Artificial Intelligence",
+        "One of the highlights of the day was an inspiring address by **Mrs R. Gengezha**, Director of Errymaple High School.",
+        "In her speech, Mrs Gengezha challenged students, teachers and parents to embrace technological change rather than fear it, emphasising that artificial intelligence represents an opportunity for growth when used responsibly.",
+        "She delivered one of the day's most memorable messages:",
+        "> \"Artificial Intelligence is not going to replace human beings; it will replace human beings who refuse to use Artificial Intelligence.\"",
+        "Her remarks underscored the importance of continuous learning and adaptability in a world increasingly shaped by emerging technologies. She encouraged learners to develop digital literacy alongside critical thinking, creativity, ethical leadership and strong interpersonal skills—qualities that remain uniquely human and increasingly valuable in an AI-driven world.",
+        "Mrs Gengezha reaffirmed the school's commitment to integrating technology into teaching and learning while maintaining the human values that define quality education.",
+        "IMAGE:/images/prizegiving_3.jpg",
+        "## Guest of Honour Challenges Learners to Lead the Future",
+        "The Guest of Honour, **Mr Munyaradzi Gwatidzo**, congratulated the school on its remarkable achievements and praised its vision of combining academic excellence with innovation.",
+        "Addressing students, he encouraged them to embrace emerging technologies while remaining disciplined, hardworking and ethically grounded. He noted that the future belongs to young people who are willing to continuously acquire new skills, solve real-world problems and adapt to changing circumstances.",
+        "He commended Errymaple High School for positioning itself as a forward-looking institution that recognises the transformative role of artificial intelligence in education while ensuring learners develop the character and values needed to use technology responsibly.",
+        "IMAGE:/images/prizegiving_5.jpg",
+        "## Principal Reflects on a Successful Year",
+        "The school's Principal, **Mr M. Mhuri**, reflected on the institution's achievements over the past academic year, expressing gratitude to parents, teachers, support staff and learners for their collective dedication.",
+        "He acknowledged the commitment demonstrated by the teaching staff in maintaining high academic standards while embracing innovative teaching approaches that prepare students for the future.",
+        "Mr Mhuri encouraged students to remain focused on their educational journeys, reminding them that true success is built through perseverance, integrity, discipline and a willingness to embrace lifelong learning.",
+        "He also thanked parents and guardians for their unwavering support, describing the partnership between home and school as essential in nurturing responsible, innovative and successful young people.",
+        "## Preparing Learners for Tomorrow",
+        "The 2026 Prize Giving Day highlighted Errymaple High School's determination to move beyond traditional models of education by integrating artificial intelligence, robotics and practical technological skills into the learning experience.",
+        "The event demonstrated that the school is not only rewarding past achievements but also investing in future possibilities. By exposing learners to AI, digital technologies and innovation alongside conventional academic subjects, the institution continues to prepare graduates capable of thriving in an increasingly digital economy.",
+        "The exhibitions, speeches and awards collectively reinforced the central message of the day: excellence must evolve with the changing world, and education must empower learners to become innovators rather than merely consumers of technology.",
+        "## A Vision Beyond Excellence",
+        "As the celebrations concluded, one message resonated throughout the school community: the future belongs to those who are willing to learn, innovate and adapt.",
+        "With the theme **\"Beyond Excellence: Empowering the Next Generation Through AI and Innovation,\"** Errymaple High School demonstrated that education in the twenty-first century extends beyond examination success. It is about cultivating thinkers, innovators, entrepreneurs and responsible leaders who will harness technology to improve society.",
+        "The 2026 Prize Giving Day will be remembered not only as a celebration of achievement but also as a declaration of the school's vision—to equip every learner with the knowledge, skills and mindset required to succeed in a future where human potential and artificial intelligence work together to create new opportunities.",
+        "Through visionary leadership, committed educators and ambitious learners, Errymaple High School continues to set a benchmark for educational excellence, ensuring that today's students are prepared to become tomorrow's innovators and leaders."
+      ]
+    },
+    {
       title: "David Ruswa Tournament 2026 a Resounding Success",
       date: "June 26, 2026",
       author: "Charlton Chipandambira",
@@ -103,7 +157,7 @@ export default function SchoolNews({ params }: PageProps) {
         </div>
 
         {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {newsList.map((item, index) => (
             <motion.div
               key={item.title}
@@ -156,7 +210,7 @@ export default function SchoolNews({ params }: PageProps) {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="bg-white dark:bg-slate-900 rounded-[32px] border border-slate-100 dark:border-slate-800 shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-hidden flex flex-col relative"
+              className="bg-white dark:bg-slate-900 rounded-[32px] border border-slate-100 dark:border-slate-800 shadow-2xl max-w-3xl w-full max-h-[85vh] overflow-hidden flex flex-col relative"
             >
               {/* Close Button */}
               <button
@@ -175,7 +229,7 @@ export default function SchoolNews({ params }: PageProps) {
                   <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-serif tracking-tight leading-snug">
                     {activeArticle.title}
                   </h2>
-                  <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium">
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500 dark:text-slate-400 font-medium border-b border-slate-100 dark:border-slate-800 pb-4">
                     <span className="flex items-center gap-1.5">
                       <Clock className="h-4 w-4 text-school-gold" />
                       {activeArticle.date}
@@ -190,7 +244,7 @@ export default function SchoolNews({ params }: PageProps) {
                 </div>
 
                 {/* Hero image */}
-                <div className="rounded-2xl overflow-hidden aspect-video bg-slate-100 dark:bg-slate-850">
+                <div className="rounded-2xl overflow-hidden aspect-video bg-slate-100 dark:bg-slate-850 shadow-md">
                   <img src={activeArticle.img} alt={activeArticle.title} className="w-full h-full object-cover" />
                 </div>
 
@@ -198,15 +252,50 @@ export default function SchoolNews({ params }: PageProps) {
                 <div className="text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed space-y-4 font-sans text-justify">
                   {activeArticle.content ? (
                     activeArticle.content.map((para: string, pIdx: number) => {
+                      if (para.startsWith("## ")) {
+                        return (
+                          <h3 key={pIdx} className="text-xl font-bold font-serif text-slate-900 dark:text-white pt-6 pb-2 border-b border-slate-200/60 dark:border-slate-800">
+                            {para.replace("## ", "")}
+                          </h3>
+                        );
+                      }
+                      if (para.startsWith("> ")) {
+                        return (
+                          <blockquote key={pIdx} className="p-5 my-4 bg-amber-50 dark:bg-amber-950/40 border-l-4 border-school-gold rounded-r-2xl italic text-slate-800 dark:text-amber-100 font-serif text-base sm:text-lg leading-relaxed shadow-sm">
+                            {para.replace("> ", "")}
+                          </blockquote>
+                        );
+                      }
                       if (para.startsWith("•") || para.includes("\n•")) {
                         return (
-                          <ul key={pIdx} className="list-disc pl-6 space-y-2 py-2 text-left bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
-                            {para.split("\n").map((line, lIdx) => (
+                          <ul key={pIdx} className="list-disc pl-6 space-y-2 py-3 text-left bg-slate-50 dark:bg-slate-950 p-6 rounded-2xl border border-slate-100 dark:border-slate-800">
+                            {para.split("\n").map((line: string, lIdx: number) => (
                               <li key={lIdx} className="font-semibold text-slate-800 dark:text-slate-200">
                                 {line.replace("• ", "").trim()}
                               </li>
                             ))}
                           </ul>
+                        );
+                      }
+                      if (para.startsWith("IMAGE:")) {
+                        const imgUrl = para.replace("IMAGE:", "").trim();
+                        return (
+                          <div key={pIdx} className="my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                            <img src={imgUrl} alt="Errymaple Prize Giving Event" className="w-full h-auto object-cover max-h-[500px]" />
+                          </div>
+                        );
+                      }
+                      if (para.includes("**")) {
+                        const parts = para.split(/(\*\*.*?\*\*)/g);
+                        return (
+                          <p key={pIdx}>
+                            {parts.map((part, i) => {
+                              if (part.startsWith("**") && part.endsWith("**")) {
+                                return <strong key={i} className="font-bold text-slate-900 dark:text-white">{part.slice(2, -2)}</strong>;
+                              }
+                              return part;
+                            })}
+                          </p>
                         );
                       }
                       return <p key={pIdx}>{para}</p>;
