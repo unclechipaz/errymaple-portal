@@ -174,7 +174,7 @@ export default function SchoolNews({ params }: PageProps) {
                     src={item.img} 
                     alt={item.title} 
                     onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" 
                   />
                   <span className="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
                     {item.category}
@@ -249,12 +249,12 @@ export default function SchoolNews({ params }: PageProps) {
                 </div>
 
                 {/* Hero image */}
-                <div className="rounded-2xl overflow-hidden aspect-video bg-slate-100 dark:bg-slate-850 shadow-md">
+                <div className="rounded-2xl overflow-hidden bg-slate-900/5 dark:bg-slate-950 shadow-md flex items-center justify-center p-2 max-h-[500px]">
                   <img 
                     src={activeArticle.img} 
                     alt={activeArticle.title} 
                     onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
-                    className="w-full h-full object-cover" 
+                    className="w-full max-h-[480px] object-contain rounded-xl" 
                   />
                 </div>
 
@@ -290,12 +290,12 @@ export default function SchoolNews({ params }: PageProps) {
                       if (para.startsWith("IMAGE:")) {
                         const imgUrl = para.replace("IMAGE:", "").trim();
                         return (
-                          <div key={pIdx} className="my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
+                          <div key={pIdx} className="my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800 bg-slate-900/5 dark:bg-slate-950 flex items-center justify-center p-2 max-h-[500px]">
                             <img 
                               src={imgUrl} 
                               alt="Errymaple Prize Giving Event" 
                               onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
-                              className="w-full h-auto object-cover max-h-[500px]" 
+                              className="w-full max-h-[480px] object-contain rounded-xl" 
                             />
                           </div>
                         );
