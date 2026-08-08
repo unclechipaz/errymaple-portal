@@ -170,7 +170,12 @@ export default function SchoolNews({ params }: PageProps) {
             >
               <div>
                 <div className="h-48 relative overflow-hidden bg-slate-200">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
                   <span className="absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">
                     {item.category}
                   </span>
@@ -245,7 +250,12 @@ export default function SchoolNews({ params }: PageProps) {
 
                 {/* Hero image */}
                 <div className="rounded-2xl overflow-hidden aspect-video bg-slate-100 dark:bg-slate-850 shadow-md">
-                  <img src={activeArticle.img} alt={activeArticle.title} className="w-full h-full object-cover" />
+                  <img 
+                    src={activeArticle.img} 
+                    alt={activeArticle.title} 
+                    onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
+                    className="w-full h-full object-cover" 
+                  />
                 </div>
 
                 {/* Article body paragraphs */}
@@ -281,7 +291,12 @@ export default function SchoolNews({ params }: PageProps) {
                         const imgUrl = para.replace("IMAGE:", "").trim();
                         return (
                           <div key={pIdx} className="my-6 rounded-2xl overflow-hidden shadow-xl border border-slate-100 dark:border-slate-800 bg-slate-100 dark:bg-slate-950">
-                            <img src={imgUrl} alt="Errymaple Prize Giving Event" className="w-full h-auto object-cover max-h-[500px]" />
+                            <img 
+                              src={imgUrl} 
+                              alt="Errymaple Prize Giving Event" 
+                              onError={(e) => { (e.target as HTMLImageElement).src = '/images/news_robotics.png'; }}
+                              className="w-full h-auto object-cover max-h-[500px]" 
+                            />
                           </div>
                         );
                       }
