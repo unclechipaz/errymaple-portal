@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, use } from "react";
+import { useState, useEffect, use } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PageHeader from "@/components/high-school/PageHeader";
-import { Tag, Clock, ArrowRight, Sparkles, X, User } from "lucide-react";
+import { Tag, Clock, ArrowRight, Sparkles, X, User, Share2, Check, Copy } from "lucide-react";
 import { schoolsData, SchoolSlug } from "@/lib/schools-data";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -18,6 +18,7 @@ export default function SchoolNews({ params }: PageProps) {
   const schoolInfo = schoolsData[schoolSlug];
 
   const [activeArticle, setActiveArticle] = useState<any | null>(null);
+  const [copiedLink, setCopiedLink] = useState(false);
 
   if (!schoolInfo) {
     notFound();
@@ -26,6 +27,7 @@ export default function SchoolNews({ params }: PageProps) {
   // Create news items dynamically based on milestones or custom entries
   const newsList = [
     {
+      id: "prizegiving-2026",
       title: "Errymaple High School Celebrates Excellence While Embracing an AI-Powered Future",
       date: "August 4, 2026",
       author: "Charlton Chipandambira",
@@ -80,6 +82,7 @@ export default function SchoolNews({ params }: PageProps) {
       ]
     },
     {
+      id: "david-ruswa-tournament-2026",
       title: "David Ruswa Tournament 2026 a Resounding Success",
       date: "June 26, 2026",
       author: "Charlton Chipandambira",
@@ -97,6 +100,7 @@ export default function SchoolNews({ params }: PageProps) {
       ]
     },
     {
+      id: "high-distinction-results",
       title: `${schoolInfo.shortName} Achieves High Distinction Results`,
       date: "June 15, 2026",
       author: "School Administration",
@@ -109,6 +113,7 @@ export default function SchoolNews({ params }: PageProps) {
       ]
     },
     {
+      id: "stem-robotics-modernization",
       title: "School STEM robotics squad modernization",
       date: "May 28, 2026",
       author: "ICT Department",
@@ -121,6 +126,7 @@ export default function SchoolNews({ params }: PageProps) {
       ]
     },
     {
+      id: "sports-academy-upgrades",
       title: "Co-Curricular Sports Academy Upgrades",
       date: "April 10, 2026",
       author: "Sports Department",
@@ -133,6 +139,53 @@ export default function SchoolNews({ params }: PageProps) {
       ]
     }
   ];
+
+  // Auto-open article if URL query param exists (?article=prizegiving-2026)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const articleParam = params.get("article") || params.get("id");
+      if (articleParam) {
+        const match = newsList.find(
+          (item) => item.id === articleParam || item.title.toLowerCase().includes(articleParam.toLowerCase().replace(/-/g, " "))
+        );
+        if (match) {
+          setActiveArticle(match);
+        }
+      }
+    }
+  }, []);
+
+  const openArticle = (item: any) => {
+    setActiveArticle(item);
+    setCopiedLink(false);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("article", item.id);
+      window.history.pushState({}, "", url.toString());
+    }
+  };
+
+  const closeArticle = () => {
+    setActiveArticle(null);
+    setCopiedLink(false);
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("article");
+      url.searchParams.delete("id");
+      window.history.pushState({}, "", url.toString());
+    }
+  };
+
+  const copyArticleLink = () => {
+    if (typeof window !== "undefined" && activeArticle) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("article", activeArticle.id);
+      navigator.clipboard.writeText(url.toString());
+      setCopiedLink(true);
+      setTimeout(() => setCopiedLink(false), 2500);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
@@ -165,7 +218,7 @@ export default function SchoolNews({ params }: PageProps) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              onClick={() => setActiveArticle(item)}
+              onClick={() => openArticle(item)}
               className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer group"
             >
               <div>
@@ -217,13 +270,33 @@ export default function SchoolNews({ params }: PageProps) {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               className="bg-white dark:bg-slate-900 rounded-[32px] border border-slate-100 dark:border-slate-800 shadow-2xl max-w-3xl w-full max-h-[85vh] overflow-hidden flex flex-col relative"
             >
-              {/* Close Button */}
-              <button
-                onClick={() => setActiveArticle(null)}
-                className="absolute top-6 right-6 p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors z-10"
-              >
-                <X className="h-5 w-5 text-slate-500 dark:text-slate-450" />
-              </button>
+              {/* Header Action Buttons */}
+              <div className="absolute top-6 right-6 flex items-center gap-2 z-10">
+                <button
+                  onClick={copyArticleLink}
+                  title="Copy Direct Article Link"
+                  className="px-3.5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold flex items-center gap-1.5 transition-colors shadow-sm cursor-pointer"
+                >
+                  {copiedLink ? (
+                    <>
+                      <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                      <span className="text-emerald-600 dark:text-emerald-400">Link Copied!</span>
+                    </>
+                  ) : (
+                    <>
+                      <Share2 className="h-3.5 w-3.5 text-school-blue dark:text-school-gold" />
+                      <span>Copy Direct Link</span>
+                    </>
+                  )}
+                </button>
+                <button
+                  onClick={closeArticle}
+                  title="Close Article"
+                  className="p-2 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                >
+                  <X className="h-5 w-5 text-slate-500 dark:text-slate-450" />
+                </button>
+              </div>
 
               <div className="overflow-y-auto p-8 sm:p-10 space-y-6">
                 {/* Meta details */}
