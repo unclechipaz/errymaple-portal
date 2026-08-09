@@ -202,7 +202,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     gallery: [
       { name: "Science Laboratory", img: "/images/science_lab_gallery.png", category: "Laboratories" },
       { name: "Modern Lecture Room", img: "/images/classrooms_high.jpg", category: "Classrooms" },
-      { name: "Golf Academy training", img: "/images/golf_gallery.png", category: "Golf" },
+      { name: "Sports Academy Soccer Team", img: "/images/sports_high.jpg", category: "Sports" },
       { name: "Swimming Practice Lanes", img: "/images/swimming_gallery.png", category: "Swimming" },
     ],
     downloads: [
@@ -223,7 +223,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     ],
     landingImages: {
       classroom: "/images/classrooms_high.jpg",
-      sports: "/images/golf_gallery.png",
+      sports: "/images/sports_high.jpg",
       stem: "/images/robotics_gallery.png",
       leadership: "/images/leadership_gallery.png"
     }
