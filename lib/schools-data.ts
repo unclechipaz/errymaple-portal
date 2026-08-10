@@ -219,7 +219,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       },
       { 
         question: "How do I apply to Errymaple High School?", 
-        answer: "Parents and guardians can apply through the **Errymaple High School Admissions Office or the school's online application facility**.\n\nApplicants are required to provide the requested learner and parent/guardian information and complete the school's admission process." 
+        answer: "Parents and guardians can apply through the **Errymaple High School Admissions Office or the** [**school's online application facility**](https://high.errymaplegroup.ac.zw/admissions/apply).\n\nApplicants are required to provide the requested learner and parent/guardian information and complete the school's admission process." 
       },
       { 
         question: "Where is Errymaple High School located?", 

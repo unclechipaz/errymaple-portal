@@ -23,21 +23,43 @@ export default function SchoolFAQ({ params }: PageProps) {
   }
 
   const renderFormattedAnswer = (text: string) => {
+    const renderBoldText = (subText: string) => {
+      const parts = subText.split(/(\*\*.*?\*\*)/g);
+      return parts.map((part, i) => {
+        if (part.startsWith("**") && part.endsWith("**")) {
+          return (
+            <strong key={i} className="font-bold text-slate-900 dark:text-white">
+              {part.slice(2, -2)}
+            </strong>
+          );
+        }
+        return part;
+      });
+    };
+
     return (
       <div className="space-y-3 text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">
         {text.split("\n\n").map((paragraph, pIdx) => {
-          const parts = paragraph.split(/(\*\*.*?\*\*)/g);
+          const linkRegex = /(\[.*?\]\(.*?\))/g;
+          const segments = paragraph.split(linkRegex);
+
           return (
             <p key={pIdx}>
-              {parts.map((part, i) => {
-                if (part.startsWith("**") && part.endsWith("**")) {
+              {segments.map((segment, sIdx) => {
+                const match = segment.match(/^\[(.*?)\]\((.*?)\)$/);
+                if (match) {
+                  const [, label, url] = match;
                   return (
-                    <strong key={i} className="font-bold text-slate-900 dark:text-white">
-                      {part.slice(2, -2)}
-                    </strong>
+                    <Link
+                      key={sIdx}
+                      href={url}
+                      className="font-bold text-blue-600 hover:text-blue-700 dark:text-school-gold hover:underline underline-offset-4 transition-colors inline-flex items-center gap-0.5"
+                    >
+                      {renderBoldText(label)}
+                    </Link>
                   );
                 }
-                return part;
+                return <span key={sIdx}>{renderBoldText(segment)}</span>;
               })}
             </p>
           );
