@@ -762,9 +762,10 @@ export default function SchoolHome({ params }: PageProps) {
               <div className="absolute inset-0 bg-blue-600/10 rounded-[32px] translate-x-4 translate-y-4 -z-10" />
               <div className="rounded-[32px] overflow-hidden border border-slate-200 dark:border-slate-850 bg-slate-950 aspect-[4/5] shadow-2xl relative group">
                 <img 
-                  src="/images/leadership_gallery.png" 
-                  alt="Principal" 
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                  src={schoolSlug === "high-school" ? "/images/principal_high.jpg" : "/images/leadership_gallery.png"} 
+                  alt={schoolInfo.welcomeAuthor} 
+                  onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
+                  className="w-full h-full object-cover transition-all duration-500"
                 />
                 <div className="absolute bottom-0 inset-x-0 p-6 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent text-white">
                   <h3 className="text-xl font-bold font-serif text-school-gold">{schoolInfo.welcomeAuthor}</h3>
