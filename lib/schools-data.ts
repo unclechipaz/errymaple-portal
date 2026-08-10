@@ -169,9 +169,66 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       ]
     },
     faqs: [
-      { question: "What curricula do you offer?", answer: "We offer the ZIMSEC curriculum (O & A Level) combined with HEXCO National Foundation Certificates in Computer Servicing, and French DELF certificates." },
-      { question: "Is boarding compulsory?", answer: "No, we accommodate both day scholars and boarders. Resident boarders reside in our Eastlea campus hostels." },
-      { question: "How do I apply?", answer: "You can apply online through our dynamic wizard, attach school reports, and pay the registration fee." }
+      { 
+        question: "Is Errymaple High School the same as Errymaple International School?", 
+        answer: "No. Errymaple High School and Errymaple International School are separate schools under the Errymaple Group of Schools.\n\nErrymaple High School primarily caters for learners following the Zimbabwean national education pathway, while Errymaple International School provides an international education pathway.\n\nParents should therefore make sure they are applying to the correct school according to the curriculum they would like their child to follow." 
+      },
+      { 
+        question: "Which curriculum does Errymaple High School offer?", 
+        answer: "Errymaple High School primarily follows the **Zimbabwe School Examinations Council (ZIMSEC) curriculum**, offering education from Form 1 through to Advanced Level.\n\nIn addition to the mainstream academic curriculum, the school places strong emphasis on practical, technological and vocational education, including programmes in Computer Science, Computer Servicing & Maintenance, Agriculture and Crop Science." 
+      },
+      { 
+        question: "Does Errymaple High School offer Cambridge?", 
+        answer: "Parents looking specifically for the Cambridge curriculum should apply to **Errymaple International School**.\n\nErrymaple High School and Errymaple International School operate as separate schools with different academic pathways." 
+      },
+      { 
+        question: "Does Errymaple High School offer boarding?", 
+        answer: "Yes. Errymaple High School caters for both **Boarding and Day learners**.\n\nParents can indicate whether they are applying for a Boarding or Day place during the application process. Boarding places are subject to availability." 
+      },
+      { 
+        question: "Which Forms are open for admission?", 
+        answer: "Errymaple High School accepts applications for **Form 1 to Form 6**, subject to the availability of places in the relevant Form.\n\nParents seeking admission are encouraged to apply early, particularly for Form 1 and Boarding places." 
+      },
+      { 
+        question: "Does my child have to write an entrance test?", 
+        answer: "Yes. Prospective learners are required to undergo the school's admission assessment process.\n\nThe entrance test helps the school assess the learner's academic readiness before admission." 
+      },
+      { 
+        question: "Can my child write the entrance test online?", 
+        answer: "Yes. Errymaple High School provides an **online entrance test option**, allowing prospective learners to complete the assessment remotely.\n\nThis is particularly convenient for families who live outside Zvishavane, in other parts of Zimbabwe or outside the country." 
+      },
+      { 
+        question: "Do you accept transfer students?", 
+        answer: "Yes. Errymaple High School accepts applications from learners wishing to transfer from other schools, subject to the availability of places and the school's admission requirements.\n\nParents may be requested to provide the learner's latest academic report and other relevant school documents." 
+      },
+      { 
+        question: "What subjects are offered at Errymaple High School?", 
+        answer: "Errymaple High School offers a broad curriculum covering **Sciences, Commercials, Humanities, Languages and Practical Subjects**.\n\nSubjects include Mathematics, Physics, Chemistry, Biology, Combined Science, Geography, Accounting, Business Studies, Economics, Commerce, English Language, English Literature, Shona, Ndebele, French, History, Heritage Studies, Family & Religious Studies, Computer Science, Computer Servicing & Maintenance, Agriculture and Crop Science.\n\nSubject availability and combinations may vary according to the learner's Form and academic pathway." 
+      },
+      { 
+        question: "Does Errymaple High School offer practical and vocational education?", 
+        answer: "Yes. Practical education is an important part of the Errymaple High School learning experience.\n\nThe school provides opportunities in areas such as **Computer Science, Computer Servicing & Maintenance, Agriculture and Crop Science**, alongside its mainstream academic curriculum.\n\nThe aim is to develop learners who are academically competent while also possessing practical and technological skills." 
+      },
+      { 
+        question: "Does Errymaple High School offer Robotics and Artificial Intelligence?", 
+        answer: "Errymaple High School places a strong emphasis on **STEM, technology and innovation**. Learners are exposed to technology-focused and innovation activities designed to develop creativity, problem-solving and practical skills.\n\nThe school's broader educational approach is to prepare learners for a rapidly changing, technology-driven world." 
+      },
+      { 
+        question: "Do you offer sports and extracurricular activities?", 
+        answer: "Yes. Errymaple High School provides a variety of sporting and co-curricular opportunities.\n\nSports include **soccer, netball, basketball, volleyball, tennis and handball**. Learners can also participate in music, theatre, science and innovation activities and other school programmes." 
+      },
+      { 
+        question: "How do I apply to Errymaple High School?", 
+        answer: "Parents and guardians can apply through the **Errymaple High School Admissions Office or the school's online application facility**.\n\nApplicants are required to provide the requested learner and parent/guardian information and complete the school's admission process." 
+      },
+      { 
+        question: "Where is Errymaple High School located?", 
+        answer: "Errymaple High School is located in **Zvishavane, Zimbabwe**.\n\nParents who would like to visit the school are welcome to contact the school to arrange a visit or obtain further admission information." 
+      },
+      { 
+        question: "How can I contact the Admissions Office?", 
+        answer: "For admission enquiries, parents and guardians can contact Errymaple High School during normal school office hours.\n\n**Main Office:** +263 77 508 9740\n\nAlternatively, parents can submit an application or enquiry through the Errymaple High School website." 
+      }
     ],
     curriculum: [
       { title: "ZIMSEC Ordinary & Advanced Levels", desc: "Comprehensive examinations in Science, Commerce, and Arts.", highlights: ["Nationally accredited certificates", "Broad subject choices", "Dedicated exam preparation camps"] },

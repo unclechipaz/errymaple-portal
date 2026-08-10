@@ -22,6 +22,30 @@ export default function SchoolFAQ({ params }: PageProps) {
     notFound();
   }
 
+  const renderFormattedAnswer = (text: string) => {
+    return (
+      <div className="space-y-3 text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">
+        {text.split("\n\n").map((paragraph, pIdx) => {
+          const parts = paragraph.split(/(\*\*.*?\*\*)/g);
+          return (
+            <p key={pIdx}>
+              {parts.map((part, i) => {
+                if (part.startsWith("**") && part.endsWith("**")) {
+                  return (
+                    <strong key={i} className="font-bold text-slate-900 dark:text-white">
+                      {part.slice(2, -2)}
+                    </strong>
+                  );
+                }
+                return part;
+              })}
+            </p>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <PageHeader 
@@ -53,18 +77,16 @@ export default function SchoolFAQ({ params }: PageProps) {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 p-6 sm:p-8 rounded-3xl shadow-sm"
+              transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.5) }}
+              className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-850 p-6 sm:p-8 rounded-3xl shadow-sm hover:shadow-md transition-shadow"
             >
               <div className="flex items-start space-x-3.5">
                 <HelpCircle className="h-6 w-6 text-blue-600 dark:text-school-gold shrink-0 mt-0.5" />
-                <div className="space-y-2">
-                  <h3 className="text-base sm:text-lg font-bold font-serif text-slate-950 dark:text-white">
+                <div className="space-y-3 w-full">
+                  <h3 className="text-base sm:text-lg font-bold font-serif text-slate-950 dark:text-white leading-snug">
                     {faq.question}
                   </h3>
-                  <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  {renderFormattedAnswer(faq.answer)}
                 </div>
               </div>
             </motion.div>
