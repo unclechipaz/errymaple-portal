@@ -140,7 +140,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
       { title: "Languages & Practical Arts", desc: "Developing bilingual capability and hands-on professional expertise.", subjects: ["English Language", "Literature in English", "Français (DELF)", "Computer Servicing (HEXCO)"] },
     ],
     facilities: [
-      { name: "Robotics & Artificial Intelligence Laboratory", desc: "Learners explore robotics, programming, automation, and artificial intelligence through practical projects that prepare them for careers in the Fourth Industrial Revolution.", image: "/images/robotics_gallery.png" },
+      { name: "Robotics & Artificial Intelligence Laboratory", desc: "Learners explore robotics, programming, automation, and artificial intelligence through practical projects that prepare them for careers in the Fourth Industrial Revolution.", image: "/images/robotics_high.jpg" },
       { name: "Technical & Vocational Workshops", desc: "Students gain practical skills through our HEXCO programmes, including Computer Servicing and Maintenance, helping them develop industry-ready competencies.", image: "/images/robotics_gallery.png" },
       { name: "School Library", desc: "The library offers a quiet and resource-rich environment with textbooks, reference materials, and digital resources that support independent learning and research.", image: "/images/school_library.jpg" },
       { name: "Multipurpose Hall", desc: "Our modern hall hosts assemblies, examinations, prize-giving ceremonies, conferences, cultural events, and indoor activities throughout the year.", image: "/images/cultural_gallery.png" },
@@ -281,7 +281,7 @@ export const schoolsData: Record<SchoolSlug, SchoolData> = {
     landingImages: {
       classroom: "/images/classrooms_high.jpg",
       sports: "/images/sports_high.jpg",
-      stem: "/images/robotics_gallery.png",
+      stem: "/images/robotics_high.jpg",
       leadership: "/images/leadership_gallery.png"
     }
   },

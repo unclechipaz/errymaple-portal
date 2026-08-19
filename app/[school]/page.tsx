@@ -603,7 +603,7 @@ export default function SchoolHome({ params }: PageProps) {
               </div>
               <div className="rounded-2xl overflow-hidden aspect-square bg-slate-100 dark:bg-slate-900 border border-slate-200/50 dark:border-white/5 shadow-2xl relative group">
                 <img 
-                  src={schoolInfo.landingImages?.stem || "/images/robotics_gallery.png"} 
+                  src={schoolInfo.landingImages?.stem || "/images/robotics_high.jpg"} 
                   alt="Robotics" 
                   onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
